@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/dashboard.css">
+
+    <!-- font: Montserrat Light 300 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <!-- <div class="header-title-area">
+            <h1 class="header-title">Recipe Book</h1>
+        </div>
+        <div class="header-category-search-bar">
+            
+            <form class="header-search-bar-form">
+                <input class="header-search-bar" placeholder="Search for recipes, ingredients..." type="text">
+                <button class="search-icon">lol</button>
+            </form>
+        </div>
+        <div class="header-nav-items">
+            <button>Text</button>
+            <button>Text</button>
+            <button>Text</button>
+            <button>Text</button>
+        </div> -->
+        <div class="header-title">
+            <h1 class="title">Recipe Book</h1>
+        </div>
+        <div class="header-search-bar">
+            <div class="search-bar-span">
+                <button class="header-category-button">Category</button>
+                <form class="header-search-bar-form">
+                    <input class="search-input" placeholder="Search for recipes, ingredients..." type="text">
+                    <button class="search-icon fa-search"></button>
+                </form>
+            </div>
+        </div>
+        <div class="header-nav-menu">
+            <!-- <ul class="nav-menu">
+                <li class="nav-menu-tab">
+                    <a>Login</a>
+                </li>
+                <li class="nav-menu-tab">
+                    <a>Contact</a>
+                </li>
+                <li class="nav-menu-tab">
+                    <a>Recipes</a>
+                </li>
+            </ul> -->
+            <button class="nav-menu-btn">Contact</button>
+            <button class="nav-menu-btn">Recipes</button>
+            <button class="nav-menu-btn login">Login</button>
+            <button style="display: none;">Admin</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="home-cover-img">
+            <img class="cover-img" src="/images/raw-giant-shrimps.jpg" alt="">
+        </div>
+        <div class="top-category">
+            <div class="top-category-item">
+                <img class="top-category-item-img" src="images/food.jpg" alt="">
+            </div>
+            <div class="top-category-item">
+                <img class="top-category-item-img" src="images/raw-giant-shrimps.jpg" alt="">
+
+            </div>
+            <div class="top-category-item">
+                <img class="top-category-item-img" src="images/background-food.jpg" alt="">
+
+            </div>
+            <div class="top-category-item">
+                <img class="top-category-item-img" src="images/food.jpg" alt="">
+            </div>
+        </div>
+        <div class="swipe-recipes">
+            <div class="recipes-row">
+                <div class="recipes-title">
+                    <h1>Recipes of the Day</h1>
+                    <a href="">View ALL</a>
+                </div>
+                <p class="recipes-description">Check out our featured recipe for today! This recipe is the most popular
+                    and trendy recipe that you'd definitely want to give a try!</p>
+                <div class="recipes-cards">
+                    <div class="recipe-card">
+                        <img class="recipe-img" src="images/food.jpg" alt="">
+                        <div class="card-info">
+                            <p class="recipe-name">Fish</p>
+                            <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
+                            <p>rating XD</p>
+                        </div>
+                    </div>
+                    <div class="recipe-card">
+                        <img class="recipe-img" src="images/food.jpg" alt="">
+                        <div class="card-info">
+                            <p class="recipe-name">Fish</p>
+                            <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
+                            <p>rating XD</p>
+                        </div>
+                    </div>
+                    <div class="recipe-card">
+                        <img class="recipe-img" src="images/food.jpg" alt="">
+                        <div class="card-info">
+                            <p class="recipe-name">Fish</p>
+                            <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
+                            <p>rating XD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
