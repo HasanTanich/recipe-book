@@ -1,4 +1,4 @@
-Recipe-Book
+Recipe-Book:
     # Make the Website design:
         - Taking design hints from https://recipebook.io/, Font used: Montserrat, sans-serif.
         - Create a wireframe of everypage of the site.
@@ -10,12 +10,12 @@ Recipe-Book
     # Add Backend (most likely firestore, might change to something else, need more research).
 
 
-    two users:
+    Two users:
         - admin and user.
         - no need for login for user.
         - comments for users.
         - rate and comment
 
-    admin: 
+    Admin: 
         - list all ingredients and recipes.
         - CRUD.
