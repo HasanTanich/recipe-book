@@ -83,7 +83,7 @@
 }
 
 .container {
-    padding: 5%;
+    padding: 2% 5% 5% 5%;
     margin-top: 6%;
     /* will delete later :) */
     padding-bottom: 50%;
@@ -109,9 +109,9 @@
     height: 200px;
     margin: auto;
     margin-top: 3%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
 }
 
 .top-category-item {

@@ -3,8 +3,12 @@
     <div class="home-cover-img">
         <img class="cover-img" src="../assets/images/raw-giant-shrimps.jpg" alt="">
     </div>
+
+
     <div class="top-category">
-        <div class="top-category-item">
+        <ng-image-slider [images]="imageObject" #nav [imageSize]="{width: '25%', height: '25%'}">
+        </ng-image-slider>
+        <!-- <div class="top-category-item">
             <img class="top-category-item-img" src="../assets/images/food.jpg" alt="">
         </div>
         <div class="top-category-item">
@@ -15,7 +19,7 @@
         </div>
         <div class="top-category-item">
             <img class="top-category-item-img" src="../assets/images/food.jpg" alt="">
-        </div>
+        </div> -->
     </div>
     <div class="swipe-recipes">
         <div class="recipes-row">

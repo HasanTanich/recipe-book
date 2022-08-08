@@ -13,8 +13,8 @@
     </div>
     <div class="header-nav-menu">
         <button class="nav-menu-btn">Contact</button>
-        <button class="nav-menu-btn">Recipes</button>
-        <button class="nav-menu-btn login">Login</button>
-        <button style="display: none;">Admin</button>
+        <button routerLink="/reviews" class="nav-menu-btn">Reviews</button>
+        <button class="nav-menu-btn logout" [ngStyle]="{'display': loggedIn ? '' : 'none'}"
+            (click)="logout()">Logout</button>
     </div>
 </div>
