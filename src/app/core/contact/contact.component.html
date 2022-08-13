@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container" [ngClass]="{admin: isAdmin}">
     <div class="contact-box">
         <h1 class="box-title">Contact us</h1>
         <form [formGroup]="contactForm" class="contact-form">

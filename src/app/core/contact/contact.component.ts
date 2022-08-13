@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -9,15 +10,18 @@ import { DataService } from '../services/data.service';
 })
 export class ContactComponent implements OnInit {
 
+  isAdmin: boolean;
+
   contactForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.email, Validators.required]),
     message: new FormControl('', Validators.required)
   });
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.Authenticated();
   }
 
   sendMessage() {
