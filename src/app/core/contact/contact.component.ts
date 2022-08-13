@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,9 +15,14 @@ export class ContactComponent implements OnInit {
     message: new FormControl('', Validators.required)
   });
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  sendMessage() {
+    console.log(this.contactForm.value);
+    this.dataService.addData(this.contactForm.value);
   }
 
 }

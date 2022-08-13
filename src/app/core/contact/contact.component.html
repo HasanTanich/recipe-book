@@ -9,10 +9,11 @@
             <label for="email">Email address</label>
             <input class="email-input" type="text" formControlName="email">
             <label for="message">Message</label>
-            <textarea class="message-input" rows="10" cdkTextareaAutosize>
+            <textarea class="message-input" rows="10" cdkTextareaAutosize cdkAutosizeMinRows="5"
+                formControlName="message">
             </textarea>
-            <!-- <input class="message-input" type="text" formControlName="message"> -->
-            <button class="submit-btn" type="submit">Submit</button>
+            <button class="submit-btn" type="submit" (click)="sendMessage()"
+                [disabled]="contactForm.invalid">Submit</button>
         </form>
     </div>
 </div>
