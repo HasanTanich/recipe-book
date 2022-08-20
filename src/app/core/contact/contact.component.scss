@@ -4,6 +4,9 @@
     align-items: center;
     text-align: center;
     min-height: 100vh;
+    background-image: url('../../../assets/images/background-food.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .contact-box {
@@ -71,4 +74,9 @@
 
 .admin {
     display: none;
+}
+
+.messages-list {
+    margin-top: 2%;
+    padding: 8%;
 }
