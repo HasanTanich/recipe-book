@@ -1,1 +1,24 @@
-<p>recipe works!</p>
+<!-- <p class="recipes-description">Demo data</p> -->
+<div class="recipe-card">
+    <img class="recipe-img" [src]="recipe.image" alt="">
+    <div class="card-info">
+        <div class="left-side">
+            <h3 class="recipe-name">{{recipe.name}}</h3>
+            <!-- <p class="recipe-chef"><span style="font-weight: 200;">by</span> {{recipe.chef}} </p> -->
+            <div class="ingredients-box">
+                <h3 class="ingredients">Ingredients:</h3>
+                <ul>
+                    <li *ngFor="let ingredient of recipe.ingredients">
+                        {{ingredient}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-side">
+            <!-- <p> <span class="bold-text">Ingredients: <br> </span>{{recipe.ingredients}}</p> -->
+            <p> Meal Type: {{recipe.mealType}}</p>
+            <p> Cuisine {{recipe.cuisine}}</p>
+            <p> Cooking Time: {{recipe.cookingTime}}</p>
+        </div>
+    </div>
+</div>

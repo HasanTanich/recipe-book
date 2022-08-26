@@ -1,24 +1,14 @@
 <app-header></app-header>
 <div class="container">
     <div class="home-cover-img">
-        <img class="cover-img" [src]="'assets/images/raw-giant-shrimps.jpg'" alt="">
+        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '100%'}" [showArrow]="false"
+            [infinite]="true" [autoSlide]="3" slideImage="1">
+        </ng-image-slider>
     </div>
 
     <div class="top-category">
-        <ng-image-slider [images]="imageObject" #nav [imageSize]="{width: '25%', height: '25%'}">
+        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', space: 10}">
         </ng-image-slider>
-        <!-- <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/food.jpg" alt="">
-        </div>
-        <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/raw-giant-shrimps.jpg" alt="">
-        </div>
-        <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/background-food.jpg" alt="">
-        </div>
-        <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/food.jpg" alt="">
-        </div> -->
     </div>
     <div class="swipe-recipes">
         <div class="recipes-row">

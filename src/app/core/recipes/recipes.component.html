@@ -1,9 +1,14 @@
 <app-header></app-header>
 
 <div class="container">
+    <div class="title-box">
+        <h1>All Recipes</h1>
+        <button mat-raised-button color="primary" (click)="addRecipe()">Add Recipe</button>
+    </div>
     <div class="recipes-list-box">
         <mat-list role="list">
-            <mat-list-item role="listitem" *ngFor="let recipe of recipes | async">{{recipe.name}}
+            <mat-list-item role="listitem" *ngFor="let recipe of recipes | async">
+                <app-recipe [recipe]="recipe" style="width: 100%; height: 100%"></app-recipe>
             </mat-list-item>
         </mat-list>
     </div>

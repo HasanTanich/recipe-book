@@ -1,0 +1,56 @@
+<form [formGroup]="addRecipeForm" class="add-recipe-form">
+
+    <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Recipe name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Recipe ingredients</mat-label>
+            <mat-chip-list #chipList aria-label="ingredient selection">
+                <mat-chip *ngFor="let ingredient of ingredients" (removed)="remove(ingredient)">
+                    {{ingredient}}
+                    <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip>
+                <input placeholder="New ingredient..." [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)" formControlName="ingredients">
+            </mat-chip-list>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Image Url</mat-label>
+            <input matInput formControlName="image">
+        </mat-form-field>
+    </p>
+
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Cuisine</mat-label>
+                    <input matInput placeholder="Ex. Italian" formControlName="cuisine">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Cooking Time</mat-label>
+                    <input matInput placeholder="In minutes" type="number" formControlName="cookingTime">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Meal Type</mat-label>
+                    <input matInput formControlName="mealType">
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <div class="bottom-buttons">
+        <button mat-raised-button color="primary" class="Add-recipe-btn" type="submit"
+            [disabled]="addRecipeForm.invalid" (click)="addRecipe(addRecipeForm)">Add</button>
+        <button mat-raised-button [mat-dialog-close]="true">Cancel</button>
+    </div>
+</form>

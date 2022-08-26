@@ -104,6 +104,18 @@
     height: 100%;
 }
 
+:host ::ng-deep.ng-image-slider {
+    height: 100% !important;
+}
+
+:host ::ng-deep.ng-image-slider .ng-image-slider-container .main {
+    height: 100% !important;
+}
+
+:host ::ng-deep.ng-image-slider .ng-image-slider-container .main .main-inner .img-div img {
+    object-fit: cover;
+}
+
 .top-category {
     width: 75%;
     height: 200px;

@@ -32,7 +32,6 @@ export class DataService {
       }).catch((err) => {
         this.notificationService.openSnackBar(err.message);
       });
-
     return this.data;
   }
 }
