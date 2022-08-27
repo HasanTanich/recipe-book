@@ -18,7 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     RouterModule,
-    MatSnackBarModule,
   ],
   exports: [
     FormsModule,

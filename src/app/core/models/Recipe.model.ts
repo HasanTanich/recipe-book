@@ -4,5 +4,6 @@ export interface Recipe {
     ingredients: string[];
     image: string;
     cuisine: string;
-    cookingTime: number
+    cookingTime: number;
+    id: string;
 }

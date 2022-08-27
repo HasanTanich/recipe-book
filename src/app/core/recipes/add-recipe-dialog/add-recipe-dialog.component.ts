@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { Recipe } from '../../models/recipe.model';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-recipe-dialog',
@@ -19,7 +19,7 @@ export class AddRecipeDialogComponent implements OnInit {
   readonly separatorKeysCodes = [ENTER] as const;
   ingredients: any[] = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Recipe, public dialogRef: MatDialogRef<AddRecipeDialogComponent>, public dataService: DataService) { }
+  constructor(public dialogRef: MatDialogRef<AddRecipeDialogComponent>, public dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.addRecipeForm = new FormGroup({
@@ -32,8 +32,7 @@ export class AddRecipeDialogComponent implements OnInit {
     });
   }
 
-  addRecipe(form: FormGroup) {
-    this.dataService.addData(form.value, 'recipes');
+  onCancel() {
     this.dialogRef.close();
   }
 

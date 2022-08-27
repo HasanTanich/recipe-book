@@ -45,3 +45,16 @@
     font-size: 14px;
     font-weight: bold;
 }
+
+.edit-delete {
+    width: 70px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: 5%;
+    right: 1%;
+}
+
+.edit-delete .mat-icon {
+    cursor: pointer;
+}

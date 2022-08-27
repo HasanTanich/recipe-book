@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { addDoc, Firestore, collection, getDocs } from '@angular/fire/firestore';
+import { addDoc, Firestore, collection, getDocs, deleteDoc, updateDoc, doc } from '@angular/fire/firestore';
+import { Recipe } from '../models/recipe.model';
 import { NotificationService } from './notification.service';
 
 @Injectable({
@@ -33,5 +34,25 @@ export class DataService {
         this.notificationService.openSnackBar(err.message);
       });
     return this.data;
+  }
+
+  updateData(collectionName: string, newdata) {
+    const dataToUpdate = doc(this.firestore, collectionName, newdata.id);
+    updateDoc(dataToUpdate, newdata).then(() => {
+      this.notificationService.openSnackBar('Updated Succesfully')
+    }).catch((err) => {
+      this.notificationService.openSnackBar(err.message);
+    })
+  }
+
+  deleteData(collectionName: string, id: string) {
+    const dataToDelete = doc(this.firestore, collectionName, id);
+    deleteDoc(dataToDelete).then(() => {
+      this.notificationService.openSnackBar('Updated Succesfully');
+      this.getData(collectionName);
+    })
+      .catch((err) => {
+        this.notificationService.openSnackBar(err.message);
+      });
   }
 }

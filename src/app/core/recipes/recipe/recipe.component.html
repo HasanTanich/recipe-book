@@ -15,10 +15,13 @@
             </div>
         </div>
         <div class="right-side">
-            <!-- <p> <span class="bold-text">Ingredients: <br> </span>{{recipe.ingredients}}</p> -->
             <p> Meal Type: {{recipe.mealType}}</p>
             <p> Cuisine {{recipe.cuisine}}</p>
             <p> Cooking Time: {{recipe.cookingTime}}</p>
+        </div>
+        <div class="edit-delete">
+            <mat-icon (click)="onDelete(recipe)">delete</mat-icon>
+            <mat-icon (click)="onEdit(recipe)">edit</mat-icon>
         </div>
     </div>
 </div>
