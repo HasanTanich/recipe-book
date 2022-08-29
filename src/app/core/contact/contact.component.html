@@ -12,28 +12,25 @@
             <textarea class="message-input" rows="10" cdkTextareaAutosize cdkAutosizeMinRows="5"
                 formControlName="message">
             </textarea>
-            <button class="submit-btn" type="submit" (click)="sendMessage()"
+            <button mat-raised-button color="primary" class="submit-btn" type="submit" (click)="sendMessage()"
                 [disabled]="contactForm.invalid">Submit</button>
         </form>
     </div>
 </div>
 
-<div class="messages-list" [ngClass]="{admin: !isAdmin}">
+<!-- <div class="messages-list" [ngClass]="{admin: !isAdmin}">
     <table cdk-table [dataSource]="dataSource">
 
-        <!-- Name Column -->
         <ng-container cdkColumnDef="name">
             <th cdk-header-cell *cdkHeaderCellDef> Name </th>
             <td cdk-cell *cdkCellDef="let element"> {{element.name}} </td>
         </ng-container>
 
-        <!-- email Column -->
         <ng-container cdkColumnDef="email">
             <th cdk-header-cell *cdkHeaderCellDef> email </th>
             <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
         </ng-container>
 
-        <!-- message Column -->
         <ng-container cdkColumnDef="message">
             <th cdk-header-cell *cdkHeaderCellDef> message </th>
             <td cdk-cell *cdkCellDef="let element"> {{element.message}} </td>
@@ -43,4 +40,18 @@
         <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
+</div> -->
+
+<div class="messages-list" [ngClass]="{admin: !isAdmin}">
+    <h1 class="admin-messages-title">Messages from our users</h1>
+    <mat-selection-list #messages [multiple]="false">
+        <mat-list-option *ngFor="let user of users" [value]="user.name" (click)="showMessage(user)">
+            {{user.name}}
+            <mat-icon class="delete-btn" (click)="deleteMessage(user)">delete</mat-icon>
+        </mat-list-option>
+    </mat-selection-list>
+
+    <!-- <p>
+        Option selected: {{messages.selectedOptions.selected[0]?.value}}
+    </p> -->
 </div>

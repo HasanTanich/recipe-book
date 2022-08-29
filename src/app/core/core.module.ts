@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { RecipeComponent } from './recipes/recipe/recipe.component';
 import { AddRecipeDialogComponent } from './recipes/add-recipe-dialog/add-recipe-dialog.component';
 import { EditRecipeDialogComponent } from './recipes/edit-recipe-dialog/edit-recipe-dialog.component';
+import { UserMessagesDialogComponent } from './contact/user-messages-dialog/user-messages-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditRecipeDialogComponent } from './recipes/edit-recipe-dialog/edit-rec
     RecipesComponent,
     RecipeComponent,
     AddRecipeDialogComponent,
-    EditRecipeDialogComponent
+    EditRecipeDialogComponent,
+    UserMessagesDialogComponent
   ],
   imports: [
     CommonModule,

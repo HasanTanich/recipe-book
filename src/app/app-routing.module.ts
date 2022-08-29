@@ -10,7 +10,7 @@ import { ReviewsComponent } from './core/reviews/reviews.component';
 
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', redirectTo: '/homepage', pathMatch: "full", },
   { path: 'homepage', component: DashboardComponent },
   { path: 'admin', canActivate: [AuthGuard], component: AdminComponent },
   { path: 'reviews', component: ReviewsComponent },

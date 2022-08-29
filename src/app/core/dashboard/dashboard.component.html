@@ -2,12 +2,12 @@
 <div class="container">
     <div class="home-cover-img">
         <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '100%'}" [showArrow]="false"
-            [infinite]="true" [autoSlide]="3" slideImage="1">
+            [infinite]="true" [autoSlide]="3" slideImage="1" fetchpriority="high">
         </ng-image-slider>
     </div>
 
     <div class="top-category">
-        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', space: 10}">
+        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', space: 10}" fetchpriority="high">
         </ng-image-slider>
     </div>
     <div class="swipe-recipes">
