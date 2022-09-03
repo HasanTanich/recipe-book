@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container" *ngIf="currentRoute == '/recipes'">
     <div class="title-box">
         <h1>All Recipes</h1>
         <button mat-raised-button color="primary" (click)="addRecipe()">Add Recipe</button>
@@ -15,3 +15,5 @@
         </mat-list>
     </div>
 </div>
+
+<!-- <router-outlet></router-outlet> -->

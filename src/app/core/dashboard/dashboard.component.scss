@@ -152,8 +152,13 @@
 .recipes-title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 2%;
 }
+
+// .view-all-recipes{
+
+// }
 
 .recipes-description {
     font-weight: 500;

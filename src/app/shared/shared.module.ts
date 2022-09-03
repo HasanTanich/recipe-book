@@ -9,11 +9,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    RecipeCardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +34,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatChipsModule,
     MatIconModule,
     MatDialogModule,
+    RecipeCardComponent,
+    RouterModule,
+    MatListModule,
+    MatDividerModule,
   ]
 })
 export class SharedModule { }

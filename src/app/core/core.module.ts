@@ -11,6 +11,7 @@ import { RecipeComponent } from './recipes/recipe/recipe.component';
 import { AddRecipeDialogComponent } from './recipes/add-recipe-dialog/add-recipe-dialog.component';
 import { EditRecipeDialogComponent } from './recipes/edit-recipe-dialog/edit-recipe-dialog.component';
 import { UserMessagesDialogComponent } from './contact/user-messages-dialog/user-messages-dialog.component';
+import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserMessagesDialogComponent } from './contact/user-messages-dialog/user
     RecipeComponent,
     AddRecipeDialogComponent,
     EditRecipeDialogComponent,
-    UserMessagesDialogComponent
+    UserMessagesDialogComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,13 @@
     display: flex;
 }
 
+.recipe-details-link {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: blue;
+}
+
 .recipe-img {
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
@@ -22,28 +29,26 @@
 
 .left-side {
     padding-right: 5%;
+    width: 70%;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .recipe-name {
     padding-bottom: 15px;
 }
 
-// .ingredients-box {
-//     padding-bottom: 5%;
-// }
-
 .ingredients-box ul li {
-    margin-bottom: 1.5%;
+    margin-bottom: 10px;
 }
 
 .ingredients {
     padding-bottom: 15px;
-}
-
-.recipe-chef {
-    padding-bottom: 2%;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 .edit-delete {

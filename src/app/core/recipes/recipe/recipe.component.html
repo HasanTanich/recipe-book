@@ -1,10 +1,10 @@
-<!-- <p class="recipes-description">Demo data</p> -->
 <div class="recipe-card">
-    <img fetchpriority="high" class="recipe-img" [src]="recipe.image" alt="">
+    <a [routerLink]="['/recipe-details']" [queryParams]="{recipe: recipe.name}" [state]="{recipe: recipe}"
+        class="recipe-details-link">Go to recipe</a>
+    <img fetchpriority="high" class="recipe-img" [src]="recipe.image" [alt]="recipe.name">
     <div class="card-info">
         <div class="left-side">
             <h3 class="recipe-name">{{recipe.name}}</h3>
-            <!-- <p class="recipe-chef"><span style="font-weight: 200;">by</span> {{recipe.chef}} </p> -->
             <div class="ingredients-box">
                 <h3 class="ingredients">Ingredients:</h3>
                 <ul>
@@ -15,9 +15,9 @@
             </div>
         </div>
         <div class="right-side">
-            <p> Meal Type: {{recipe.mealType}}</p>
-            <p> Cuisine {{recipe.cuisine}}</p>
-            <p> Cooking Time: {{recipe.cookingTime}}</p>
+            <p> <span style="font-weight: bold;">Meal Type: </span> {{recipe.mealType}}</p>
+            <p> <span style="font-weight: bold;">Cuisine</span> {{recipe.cuisine}}</p>
+            <p> <span style="font-weight: bold;">Cooking Time:</span> {{recipe.cookingTime}}</p>
         </div>
         <div class="edit-delete">
             <mat-icon (click)="onDelete(recipe)">delete</mat-icon>

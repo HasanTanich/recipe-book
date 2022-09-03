@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Recipe } from '../../models/recipe.model';
 import { DataService } from '../../services/data.service';
 import { EditRecipeDialogComponent } from '../edit-recipe-dialog/edit-recipe-dialog.component';
@@ -15,10 +16,11 @@ export class RecipeComponent implements OnInit {
   @Input() recipe;
   @Output() recipeDeleted = new EventEmitter<Recipe>();
   @Output() recipeUpdated = new EventEmitter<Recipe>();
-
+  test123;
   constructor(public dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.test123 = this.recipe
   }
 
   onDelete(r: Recipe) {

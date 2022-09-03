@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="first-col">
+            <h2 class="title">
+                {{recipe.name}}
+            </h2>
+            <img class="img" [src]="recipe.image" alt="">
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div class="second-col">
+            <div class="cuisine">
+                <h3 style="margin-right: 2%;">Cuisine: </h3>
+                {{recipe.cuisine}}
+            </div>
+            <div class="mealType">
+                <h3 style="margin-right: 2%;">Meal Type: </h3>
+                {{recipe.mealType}}
+            </div>
+            <div class="cookingTime">
+                <h3 style="margin-right: 2%;">Cooking Time: </h3>
+                {{recipe.cookingTime}}
+            </div>
+            <div class="ingredients">
+                <h2 class="ingredients-title">
+                    Ingredients
+                </h2>
+                <p class="ingredients-list" *ngFor="let ingredient of recipe.ingredients">
+                    {{ingredient}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="reviews">
+        Reviews
+    </div> -->
+</div>

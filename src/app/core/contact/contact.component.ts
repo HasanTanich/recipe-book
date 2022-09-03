@@ -5,8 +5,7 @@ import { ContactUs } from '../models/contactus.model';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
-// import { MatTableDataSource } from "@angular/material/table";
-// import { ContactUs } from '../models/contactus.model';
+
 
 @Component({
   selector: 'app-contact',
@@ -15,10 +14,6 @@ import { UserMessagesDialogComponent } from './user-messages-dialog/user-message
 })
 
 export class ContactComponent implements OnInit {
-
-  // displayedColumns: string[] = ['name', 'email', 'message'];
-  // dataSource: MatTableDataSource<ContactUs>;
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
   isAdmin: boolean; // Logged in or not 
   data; // data fetched from database

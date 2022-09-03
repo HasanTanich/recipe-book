@@ -1,0 +1,67 @@
+.container {
+    padding: 9%;
+}
+
+.row {
+    display: flex;
+    margin-left: 5%;
+    height: auto;
+}
+
+.first-col {
+    max-width: 60%;
+    width: 60%;
+    padding-right: 3%;
+}
+
+.second-col {
+    width: 40%;
+    padding-left: 3%;
+}
+
+.cuisine {
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+
+.mealType {
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+
+.cookingTime {
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+
+.title {
+    margin-bottom: 4%;
+}
+
+.img {
+    max-height: 600px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.ingredients {
+    margin-top: 3%;
+}
+
+.ingredients-title {
+    padding: 10px;
+}
+
+.ingredients-list {
+    padding: 10px;
+}
+
+// .reviews {
+//     margin-top: 20px;
+//     padding: 5%;
+// }

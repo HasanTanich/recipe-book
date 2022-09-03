@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
@@ -13,11 +14,13 @@ export class RecipesComponent implements OnInit {
 
   recipes;
   addedRecipeValue: FormGroup;
+  currentRoute: string;
 
-  constructor(public dataService: DataService, public dialog: MatDialog) { }
+  constructor(public dataService: DataService, public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getRecipes();
+    this.currentRoute = this.router.url;
   }
 
   recipeDeleted(data) {
