@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { addDoc, Firestore, collection, getDocs, deleteDoc, updateDoc, doc } from '@angular/fire/firestore';
-import { Recipe } from '../models/recipe.model';
 import { NotificationService } from './notification.service';
 
 @Injectable({
@@ -24,6 +23,7 @@ export class DataService {
   }
 
   async getData(collectionName: string) {
+
     const dbInstance = collection(this.firestore, collectionName);
     await getDocs(dbInstance)
       .then((response) => {
@@ -55,4 +55,5 @@ export class DataService {
         this.notificationService.openSnackBar(err.message);
       });
   }
+
 }

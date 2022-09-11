@@ -10,41 +10,21 @@
         <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', space: 10}" fetchpriority="high">
         </ng-image-slider>
     </div>
+
     <div class="swipe-recipes">
+
         <div class="recipes-row">
-            <div class="recipes-title">
-                <h1>Italian Cuisine</h1>
-                <a [routerLink]="['/recipes']" class="view-all-recipes">View
-                    All</a>
-            </div>
-            <p class="recipes-description">Check out our featured recipe for today! This recipe is the most popular
-                and trendy recipe that you'd definitely want to give a try!</p>
-            <div class="recipes-cards">
-                <div class="recipe-card">
-                    <img class="recipe-img" [src]="'assets/images/food.jpg'" alt="">
-                    <div class="card-info">
-                        <p class="recipe-name">Fish</p>
-                        <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
-                        <p>rating XD</p>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <img class="recipe-img" [src]="'assets/images/food.jpg'" alt="">
-                    <div class="card-info">
-                        <p class="recipe-name">Fish</p>
-                        <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
-                        <p>rating XD</p>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <img class="recipe-img" [src]="'assets/images/food.jpg'" alt="">
-                    <div class="card-info">
-                        <p class="recipe-name">Fish</p>
-                        <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
-                        <p>rating XD</p>
-                    </div>
-                </div>
-            </div>
+            <app-recipe-cards [Cuisine]="'Italian'" [Recipes]="ItalianRecipes"></app-recipe-cards>
         </div>
+
+        <div class="recipes-row">
+            <app-recipe-cards [Cuisine]="'Syrian'" [Recipes]="SyrianRecipes"></app-recipe-cards>
+        </div>
+
+        <div class="recipes-row">
+            <app-recipe-cards [Cuisine]="'Chinese'" [Recipes]="ChineseRecipes"></app-recipe-cards>
+        </div>
+
     </div>
+
 </div>

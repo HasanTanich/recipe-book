@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'reviews', component: ReviewsComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'recipes', canActivate: [AdminGuard], component: RecipesComponent },
-  { path: 'recipe-details', component: RecipeDetailsComponent },
+  { path: 'recipe-details/:name', component: RecipeDetailsComponent },
   // {
   //   path: 'recipes', canActivate: [AdminGuard], component: RecipesComponent, children: [
   //     { path: 'recipe-details', component: RecipeDetailsComponent }

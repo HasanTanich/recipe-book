@@ -1,6 +1,6 @@
 <div class="recipe-card">
-    <a [routerLink]="['/recipe-details']" [queryParams]="{recipe: recipe.name}" [state]="{recipe: recipe}"
-        class="recipe-details-link">Go to recipe</a>
+    <a [routerLink]="['/recipe-details', recipe.name]" [state]="{recipe: recipe}" class="recipe-details-link">Go to
+        recipe</a>
     <img fetchpriority="high" class="recipe-img" [src]="recipe.image" [alt]="recipe.name">
     <div class="card-info">
         <div class="left-side">

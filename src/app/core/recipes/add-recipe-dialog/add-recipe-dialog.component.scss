@@ -12,12 +12,21 @@
     padding: 6%;
 }
 
-.example-full-width {
+.full-width {
     width: 100%;
 }
 
 td {
     padding-right: 8px;
+}
+
+// .mat-form-field-appearance-fill .mat-form-field-flex{
+// }
+
+:host ::ng-deep.ingredients.mat-form-field-appearance-fill .mat-form-field-flex {
+    height: 100px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .bottom-buttons {

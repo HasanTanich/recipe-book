@@ -1,11 +1,11 @@
 <form [formGroup]="addRecipeForm" class="add-recipe-form">
 
     <p>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="fill">
             <mat-label>Recipe name</mat-label>
             <input matInput formControlName="name">
         </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="full-width ingredients" appearance="fill">
             <mat-label>Recipe ingredients</mat-label>
             <mat-chip-list #chipList aria-label="ingredient selection">
                 <mat-chip *ngFor="let ingredient of ingredients" (removed)="remove(ingredient)">
@@ -20,28 +20,28 @@
             </mat-chip-list>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="fill">
             <mat-label>Image Url</mat-label>
             <input matInput formControlName="image">
         </mat-form-field>
     </p>
 
-    <table class="example-full-width" cellspacing="0">
+    <table class="full-width" cellspacing="0">
         <tr>
             <td>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="full-width" appearance="fill">
                     <mat-label>Cuisine</mat-label>
                     <input matInput placeholder="Ex. Italian" formControlName="cuisine">
                 </mat-form-field>
             </td>
             <td>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="full-width" appearance="fill">
                     <mat-label>Cooking Time</mat-label>
                     <input matInput placeholder="In minutes" type="number" formControlName="cookingTime">
                 </mat-form-field>
             </td>
             <td>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="full-width" appearance="fill">
                     <mat-label>Meal Type</mat-label>
                     <input matInput formControlName="mealType">
                 </mat-form-field>

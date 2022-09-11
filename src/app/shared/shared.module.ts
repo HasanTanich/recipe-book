@@ -9,20 +9,25 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    RecipeCardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RecipeCardsComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
+    MatIconModule,
+    NgImageSliderModule,
   ],
   exports: [
     FormsModule,
@@ -34,10 +39,11 @@ import { MatDividerModule } from '@angular/material/divider';
     MatChipsModule,
     MatIconModule,
     MatDialogModule,
-    RecipeCardComponent,
     RouterModule,
     MatListModule,
     MatDividerModule,
+    RecipeCardsComponent,
+    NgImageSliderModule,
   ]
 })
 export class SharedModule { }

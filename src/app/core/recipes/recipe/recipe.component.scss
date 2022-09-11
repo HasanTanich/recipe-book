@@ -43,6 +43,12 @@
     padding-bottom: 15px;
 }
 
+.ingredients-box {
+    overflow: scroll;
+    overflow-x: auto;
+    height: 75%;
+}
+
 .ingredients-box ul li {
     margin-bottom: 10px;
 }
