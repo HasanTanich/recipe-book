@@ -1,19 +1,21 @@
 <app-header></app-header>
 
-<div class="container" *ngIf="currentRoute == '/recipes'">
-    <div class="title-box">
-        <h1>All Recipes</h1>
-        <button mat-raised-button color="primary" (click)="addRecipe()">Add Recipe</button>
-    </div>
-    <div class="recipes-list-box">
-        <mat-list role="list">
-            <mat-list-item role="listitem" *ngFor="let recipe of recipes">
-                <app-recipe [recipe]="recipe" style="width: 100%; height: 100%" (recipeDeleted)="recipeDeleted($event)"
-                    (recipeUpdated)="recipeUpdated($event)">
-                </app-recipe>
-            </mat-list-item>
-        </mat-list>
-    </div>
-</div>
+<div class="container">
 
-<!-- <router-outlet></router-outlet> -->
+    <h1 class="recipes-title">
+        All Recipes
+    </h1>
+
+    <div class="recipes-cards">
+        <div class="recipe-card" *ngFor="let recipe of recipes">
+            <img class="recipe-img" [routerLink]="['/recipe-details', recipe.name]" [state]="recipe"
+                [src]="recipe.image" alt="" fetchpriority="high">
+            <div class="card-info">
+                <p class="recipe-name">{{recipe.name}}</p>
+                <p class="recipe-cuisine">{{recipe.cuisine}}</p>
+                <p class="recipe-cooking-time">Cooking Time: {{recipe.cookingTime}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

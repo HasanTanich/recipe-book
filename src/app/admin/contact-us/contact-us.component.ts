@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ContactUs } from '../models/contactus.model';
-import { AuthService } from '../services/auth.service';
-import { DataService } from '../services/data.service';
+import { ContactUs } from 'src/app/core/models/contactus.model';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { DataService } from 'src/app/core/services/data.service';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
 
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['./contact-us.component.scss']
 })
 
 export class ContactComponent implements OnInit {
@@ -48,10 +48,13 @@ export class ContactComponent implements OnInit {
   }
 
   deleteMessage(user: ContactUs) {
+
     this.users = this.users.filter(u => {
       return u !== user;
     });
+
     this.dataService.deleteData('contact-us', user.id)
+
   }
 
 }

@@ -113,6 +113,7 @@
 }
 
 :host ::ng-deep.ng-image-slider .ng-image-slider-container .main .main-inner .img-div img {
+    border-radius: 16px;
     object-fit: cover;
 }
 

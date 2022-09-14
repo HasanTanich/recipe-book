@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  constructor(public auth: Auth, private router: Router) {
+  constructor(public auth: Auth, private router: Router, public notificationService: NotificationService) {
   }
 
   Login(email: string, password: string) {
@@ -17,18 +18,12 @@ export class AuthService {
         this.router.navigate(['/']);
       })
       .catch((err) => {
-        alert(err.message);
+        this.notificationService.openSnackBar(err.message);
       });
   }
 
   getCurrentUser() {
     let user = JSON.parse(localStorage.getItem('user'));
-    // let u = {
-    //   token: user.stsTokenManager.refreshToken,
-    //   email: user.email,
-    //   uid: user.uid,
-    //   expiration: user.stsTokenManager.expirationTime
-    // };
     return user;
   }
 

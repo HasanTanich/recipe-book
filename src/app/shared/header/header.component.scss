@@ -105,9 +105,9 @@
 
 .header-nav-menu {
     display: flex;
-    width: 30%;
+    width: 34%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 /* right side of the header. navigation buttons */
@@ -118,6 +118,7 @@
 .nav-menu-btn {
     border: none;
     font-weight: bold;
+    font-size: 16px;
     cursor: pointer;
     height: 100%;
     padding: 0;
@@ -134,4 +135,45 @@
 .nav-menu-btn:hover {
     color: #323c41;
     border-bottom: 2px solid #323c41;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .nav-menu-btn {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .nav-menu-btn {
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .nav-menu-btn {
+        font-size: 11px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .nav-menu-btn {
+        font-size: 10px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
 }

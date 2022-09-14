@@ -6,7 +6,7 @@
 
 .recipe-details-link {
     position: absolute;
-    right: 10px;
+    right: -9%;
     top: 10px;
     color: blue;
 }
@@ -44,7 +44,7 @@
 }
 
 .ingredients-box {
-    overflow: scroll;
+    overflow: hidden;
     overflow-x: auto;
     height: 75%;
 }

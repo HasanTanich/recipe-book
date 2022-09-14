@@ -3,7 +3,7 @@
     <p>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Recipe name</mat-label>
-            <input matInput formControlName="name">
+            <input matInput formControlName="name" minlength="3" maxlength="50">
         </mat-form-field>
         <mat-form-field class="full-width ingredients" appearance="fill">
             <mat-label>Recipe ingredients</mat-label>
@@ -16,7 +16,7 @@
                 </mat-chip>
                 <input placeholder="New ingredient..." [matChipInputFor]="chipList"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-                    (matChipInputTokenEnd)="add($event)" formControlName="ingredients">
+                    (matChipInputTokenEnd)="add($event)" formControlName="ingredients" minlength="5" maxlength="100">
             </mat-chip-list>
         </mat-form-field>
 
@@ -31,7 +31,7 @@
             <td>
                 <mat-form-field class="full-width" appearance="fill">
                     <mat-label>Cuisine</mat-label>
-                    <input matInput placeholder="Ex. Italian" formControlName="cuisine">
+                    <input matInput placeholder="Ex. Italian" minlength="3" maxlength="25" formControlName="cuisine">
                 </mat-form-field>
             </td>
             <td>
@@ -43,7 +43,7 @@
             <td>
                 <mat-form-field class="full-width" appearance="fill">
                     <mat-label>Meal Type</mat-label>
-                    <input matInput formControlName="mealType">
+                    <input matInput formControlName="mealType" minlength="4" maxlength="25">
                 </mat-form-field>
             </td>
         </tr>

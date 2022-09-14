@@ -1,25 +1,13 @@
 <div class="recipes-title">
     <h1>{{Cuisine}} Cuisine</h1>
-    <a [routerLink]="['/recipes']" class="view-all-recipes">View
+    <a [routerLink]="['/recipes', Cuisine]" [state]="recipes" class="view-all-recipes">View
         All</a>
 </div>
 
 <p class="recipes-description">Check out these amazing dishes from the {{Cuisine}} kitchen!</p>
-<!-- <div class="cards-navigation">
-    <mat-icon>arrow_back</mat-icon>
-    <mat-icon>arrow_forward</mat-icon>
-</div> -->
-
 
 <div class="recipes-cards">
-    <!-- <mat-icon (click)="prevBtn()" class="backward-arrow">keyboard_arrow_left</mat-icon>
-    <mat-icon (click)="nextBtn()" class="forward-arrow">keyboard_arrow_right</mat-icon>
-    <div class="recipe-card" *ngFor="let item of Recipes | async as list">
-        <img class="recipe-img" [src]="item.image" alt="" fetchpriority="high">
-        <div class="card-info">
-            <p class="recipe-name">{{item.name}}</p>
-        </div>
-    </div> -->
+
     <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', height: '300px', space: 10}"
         fetchpriority="high" [imagePopup]="false" (imageClick)="goToRecipe($event)">
     </ng-image-slider>

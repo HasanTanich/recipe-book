@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ContactUs } from '../../models/contactus.model';
+import { ContactUs } from 'src/app/core/models/contactus.model';
 
 @Component({
   selector: 'app-user-messages-dialog',

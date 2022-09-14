@@ -13,9 +13,9 @@
     </div>
     <div class="header-nav-menu">
         <button class="nav-menu-btn" [routerLink]="'/contact-us'">Contact</button>
-        <!-- <button routerLink="/reviews" class="nav-menu-btn">Reviews</button> -->
-        <button routerLink="/recipes" class="nav-menu-btn"
-            [ngStyle]="{'display': loggedIn ? '' : 'none'}">Recipes</button>
+        <button routerLink="/manage-recipes" class="nav-menu-btn" [ngStyle]="{'display': loggedIn ? '' : 'none'}">Manage
+            Recipes</button>
+        <button [routerLink]="['/recipes']" [state]="recipes" class="nav-menu-btn">Recipes</button>
         <button class="nav-menu-btn logout" [ngStyle]="{'display': loggedIn ? '' : 'none'}"
             (click)="logout()">Logout</button>
     </div>

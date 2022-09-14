@@ -3,8 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Recipe } from '../../models/recipe.model';
-import { DataService } from '../../services/data.service';
+import { Recipe } from 'src/app/core/models/recipe.model';
 
 @Component({
   selector: 'app-edit-recipe-dialog',
@@ -17,7 +16,8 @@ export class EditRecipeDialogComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER] as const;
   ingredients: any[] = [];
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Recipe, public dialogRef: MatDialogRef<EditRecipeDialogComponent>, public dataService: DataService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Recipe,
+    public dialogRef: MatDialogRef<EditRecipeDialogComponent>) { }
 
   ngOnInit(): void {
     this.editRecipeForm = new FormGroup({

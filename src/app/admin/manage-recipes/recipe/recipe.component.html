@@ -1,5 +1,5 @@
 <div class="recipe-card">
-    <a [routerLink]="['/recipe-details', recipe.name]" [state]="{recipe: recipe}" class="recipe-details-link">Go to
+    <a [routerLink]="['/recipe-details', recipe.name]" [state]="recipe" class="recipe-details-link">Go to
         recipe</a>
     <img fetchpriority="high" class="recipe-img" [src]="recipe.image" [alt]="recipe.name">
     <div class="card-info">
@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="right-side">
-            <p> <span style="font-weight: bold;">Meal Type: </span> {{recipe.mealType}}</p>
-            <p> <span style="font-weight: bold;">Cuisine</span> {{recipe.cuisine}}</p>
+            <p> <span style="font-weight: bold;">Meal Type:</span> {{recipe.mealType}}</p>
+            <p> <span style="font-weight: bold;">Cuisine:</span> {{recipe.cuisine}}</p>
             <p> <span style="font-weight: bold;">Cooking Time:</span> {{recipe.cookingTime}}</p>
         </div>
         <div class="edit-delete">

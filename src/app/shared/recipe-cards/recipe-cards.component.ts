@@ -11,7 +11,7 @@ import { Recipe } from 'src/app/core/models/recipe.model';
 })
 export class RecipeCardsComponent implements OnInit {
 
-  @Input() Recipes: Promise<Recipe[]>
+  @Input() recipes: Promise<Recipe[]>
   @Input() Cuisine: string;
 
   imagesGallery: Image[] = [];
@@ -20,7 +20,7 @@ export class RecipeCardsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.Recipes.then((data) => {
+    this.recipes.then((data) => {
       data.map(d => {
         let temp = {
           image: d.image,
@@ -36,7 +36,7 @@ export class RecipeCardsComponent implements OnInit {
 
   async goToRecipe(index: number) {
     let recipe;
-    await this.Recipes.then(r => {
+    await this.recipes.then(r => {
       r.map(a => {
         if (a.name == this.imagesGallery[index].title) recipe = a;
       });
@@ -44,7 +44,7 @@ export class RecipeCardsComponent implements OnInit {
 
     this.router.navigate(
       ['/recipe-details', this.imagesGallery[index].title],
-      { state: { recipe: recipe } }
+      { state: recipe }
     );
   }
 

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { Recipe } from '../../models/recipe.model';
-import { DataService } from '../../services/data.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Recipe } from 'src/app/core/models/recipe.model';
+import { DataService } from 'src/app/core/services/data.service';
+import { ConfirmPromptComponent } from 'src/app/shared/confirm-prompt/confirm-prompt.component';
 import { EditRecipeDialogComponent } from '../edit-recipe-dialog/edit-recipe-dialog.component';
 
 @Component({
@@ -14,18 +14,26 @@ import { EditRecipeDialogComponent } from '../edit-recipe-dialog/edit-recipe-dia
 export class RecipeComponent implements OnInit {
 
   @Input() recipe;
+
   @Output() recipeDeleted = new EventEmitter<Recipe>();
   @Output() recipeUpdated = new EventEmitter<Recipe>();
-  test123;
+
   constructor(public dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.test123 = this.recipe
   }
 
   onDelete(r: Recipe) {
-    this.recipeDeleted.emit(r);
-    this.dataService.deleteData('recipes', r.id);
+    let dialogRef = this.dialog.open(ConfirmPromptComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.recipeDeleted.emit(r);
+        this.dataService.deleteData('recipes', r.id);
+      }
+    });
   }
 
   onEdit(r: Recipe) {

@@ -24,4 +24,11 @@ export class AdminComponent implements OnInit {
   login() {
     this.authService.Login(this.loginForm.get('email').value, this.loginForm.get('password').value);
   }
+
+  emailErrorMessage() {
+    if (this.loginForm.get('email').hasError('required')) {
+      return '* Email field is required';
+    }
+    return this.loginForm.get('email').hasError('email') ? 'Not a valid email' : '';
+  }
 }

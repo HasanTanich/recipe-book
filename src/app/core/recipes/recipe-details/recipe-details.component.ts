@@ -12,7 +12,6 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(private router: Router) {
     this.recipe = this.router.getCurrentNavigation().extras.state;
-    this.recipe = this.recipe.recipe;
   }
 
   ngOnInit(): void {

@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Data } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
@@ -11,45 +8,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-
   recipes;
-  addedRecipeValue: FormGroup;
-  currentRoute: string;
 
-  constructor(public dataService: DataService, public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
+  constructor(public dataService: DataService, private router: Router, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-    this.getRecipes();
-    this.currentRoute = this.router.url;
-  }
 
-  recipeDeleted(data) {
-    this.recipes = this.recipes.filter(r => {
-      return r !== data;
-    });
-  }
-
-  recipeUpdated(data) {
-    this.recipes = this.recipes.map(a => {
-      return data.id === a.id ? data : a;
-    });
-  }
-
-  getRecipes() {
-    return this.dataService.getData('recipes').then(data => {
-      this.recipes = data;
-    });
-  }
-
-  addRecipe() {
-    let dialogRef = this.dialog.open(AddRecipeDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.dataService.addData(result, 'recipes');
-        this.recipes.push(result);
+    this.route.data.subscribe((data: Data) => {
+      if (data['filterRecipes']) {
+        this.recipes = data['filterRecipes'];
       }
-    });
+      this.recipes = data['recipes'] ? data['recipes'] : data['filterRecipes']
+    })
   }
 
 }

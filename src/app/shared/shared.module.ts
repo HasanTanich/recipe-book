@@ -14,20 +14,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
 import { NgImageSliderModule } from 'ng-image-slider';
-
+import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     PageNotFoundComponent,
     RecipeCardsComponent,
-
+    ConfirmPromptComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     MatIconModule,
     NgImageSliderModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   exports: [
     FormsModule,
@@ -44,6 +46,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MatDividerModule,
     RecipeCardsComponent,
     NgImageSliderModule,
-  ]
+    ConfirmPromptComponent,
+  ],
 })
 export class SharedModule { }
