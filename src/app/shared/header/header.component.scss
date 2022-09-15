@@ -5,7 +5,7 @@
     font-weight: 500;
     background-color: #fff;
     position: fixed;
-    z-index: 1030;
+    z-index: 100;
     top: 0;
     width: 100%;
 }
@@ -64,10 +64,7 @@
 }
 
 .search-icon {
-    background-color: transparent;
-    background-size: 19px 19px;
-    background-position: center center;
-    top: 0;
+    top: 36%;
     left: 0;
     width: 35px;
     height: 35px;
@@ -78,16 +75,10 @@
     color: #323c41;
 }
 
-.fa-search:before {
-    content: "\f002";
-    /* content: url("/icons/search-icons-283914.png") */
-}
-
 .header-category-button {
     background-color: #f2f2f2;
-    background-size: 19px 19px;
     height: 35px;
-    margin-right: 4px;
+    margin-right: 6px;
     border-top-left-radius: 18px;
     border-bottom-left-radius: 18px;
     padding: 0px 15px;
@@ -96,7 +87,6 @@
     min-width: 20%;
     max-width: 140px;
     font-weight: bold;
-    font-size: 15px;
 }
 
 .header-category-button:hover {
@@ -162,6 +152,10 @@
     .nav-menu-btn {
         font-size: 11px;
     }
+
+    // .header-nav-menu-smaller-devices {
+    //     background-color: pink;
+    // }
 
     .title {
         font-size: 20px;

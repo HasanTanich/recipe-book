@@ -23,4 +23,15 @@ export class RecipesDataService {
     return data;
   }
 
+  async getRecipesFromName(recipeName: string) {
+    let data;
+    const q = query(collection(this.firestore, "recipes"), where("name", "==", recipeName));
+    const querySnapshot = await getDocs(q);
+    await querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      data = doc.data();
+    });
+    return data;
+  }
+
 }

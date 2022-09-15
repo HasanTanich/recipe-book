@@ -15,6 +15,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,12 @@ import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.componen
     NgImageSliderModule,
     MatDialogModule,
     MatButtonModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   exports: [
     FormsModule,

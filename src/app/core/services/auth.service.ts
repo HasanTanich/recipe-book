@@ -16,6 +16,7 @@ export class AuthService {
       .then((response: any) => {
         localStorage.setItem('user', JSON.stringify(response.user));
         this.router.navigate(['/']);
+        this.notificationService.openSnackBar('Welcome ' + response.user.email);
       })
       .catch((err) => {
         this.notificationService.openSnackBar(err.message);

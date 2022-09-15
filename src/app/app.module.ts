@@ -26,10 +26,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     SharedModule,
     CoreModule,
     AdminModule,
+    AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    AppRoutingModule,
 
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],

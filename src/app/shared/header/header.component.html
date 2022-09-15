@@ -1,22 +1,55 @@
 <div class="header">
+
     <div class="header-title">
         <h1 class="title" routerLink="/">Recipe Book</h1>
     </div>
+
     <div class="header-search-bar">
         <div class="search-bar-span">
             <button class="header-category-button">Category</button>
             <form class="header-search-bar-form">
-                <input class="search-input" placeholder="Search for recipes, ingredients..." type="text">
-                <button class="search-icon fa-search"></button>
+                <input type="text" placeholder="Search for recipes" aria-label="Number" matInput
+                    [formControl]="searchInput" class="search-input" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let searchInput of filteredSearchOptions | async" [value]="searchInput"
+                        (click)="recipeSelected(searchInput)">
+                        {{searchInput}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-icon class="search-icon">search</mat-icon>
+                <button type="submit" (click)="recipeSelected(searchInput.value)" style="display: none;">
+                </button>
             </form>
         </div>
     </div>
+
+    <!-- <div class="header-search-bar">
+        <div class="search-bar-span">
+            <button class="header-category-button">Category</button>
+            <form class="header-search-bar-form">
+                <mat-icon class="search-icon">search</mat-icon>
+                <input class="search-input" placeholder="Search for recipes, ingredients..." type="text">
+            </form>
+        </div>
+    </div> -->
+
     <div class="header-nav-menu">
         <button class="nav-menu-btn" [routerLink]="'/contact-us'">Contact</button>
         <button routerLink="/manage-recipes" class="nav-menu-btn" [ngStyle]="{'display': loggedIn ? '' : 'none'}">Manage
             Recipes</button>
-        <button [routerLink]="['/recipes']" [state]="recipes" class="nav-menu-btn">Recipes</button>
+        <button [routerLink]="['/recipes']" class="nav-menu-btn">Recipes</button>
         <button class="nav-menu-btn logout" [ngStyle]="{'display': loggedIn ? '' : 'none'}"
             (click)="logout()">Logout</button>
     </div>
+
+    <!-- for devices with width 769px and smaller-->
+
+    <!-- <div class="header-nav-menu-smaller-devices">
+        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </div> -->
+
 </div>

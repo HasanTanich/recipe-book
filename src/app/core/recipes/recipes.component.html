@@ -2,9 +2,18 @@
 
 <div class="container">
 
-    <h1 class="recipes-title">
+    <h1 *ngIf="!cuisine && !searchResults" class="recipes-title">
         All Recipes
     </h1>
+
+    <h1 *ngIf="cuisine" class="recipes-title">
+        {{cuisine + ' cuisine recipes'}}
+    </h1>
+
+    <h1 *ngIf="searchResults" class="recipes-title">
+        {{'Search results for: ' + searchResults}}
+    </h1>
+
 
     <div class="recipes-cards">
         <div class="recipe-card" *ngFor="let recipe of recipes">
@@ -16,6 +25,10 @@
                 <p class="recipe-cooking-time">Cooking Time: {{recipe.cookingTime}}</p>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="recipes.length === 0" class="no-matching-results">
+        Sorry! No matching results.
     </div>
 
 </div>

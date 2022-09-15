@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Data } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Data, ActivatedRouteSnapshot } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -9,18 +9,24 @@ import { DataService } from '../services/data.service';
 })
 export class RecipesComponent implements OnInit {
   recipes;
-
+  cuisine;
+  searchResults;
   constructor(public dataService: DataService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-
     this.route.data.subscribe((data: Data) => {
-      if (data['filterRecipes']) {
-        this.recipes = data['filterRecipes'];
+      if (data['recipes']) {
+        this.recipes = data['recipes'];
+      } else if (data['filterRecipesByCuisine']) {
+        this.recipes = data['filterRecipesByCuisine'];
+        this.cuisine = this.route.snapshot.params['cuisine'];
       }
-      this.recipes = data['recipes'] ? data['recipes'] : data['filterRecipes']
-    })
+      else if (data['searchRecipes']) {
+        this.recipes = data['searchRecipes'];
+        this.searchResults = this.route.snapshot.params['key'];
+      }
+    });
   }
 
 }

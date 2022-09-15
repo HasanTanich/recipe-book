@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -10,11 +10,12 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe;
 
-  constructor(private router: Router) {
-    this.recipe = this.router.getCurrentNavigation().extras.state;
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.route.data.subscribe((data: Data) => {
+      this.recipe = data['recipe'];
+    });
   }
-
 }
