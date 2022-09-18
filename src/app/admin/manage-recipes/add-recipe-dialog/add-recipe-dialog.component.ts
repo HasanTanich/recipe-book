@@ -24,9 +24,11 @@ export class AddRecipeDialogComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       mealType: new FormControl('', [Validators.required]),
       image: new FormControl('', [Validators.required]),
-      ingredients: new FormControl([], [Validators.required]),
+      ingredients: new FormControl([]),
       cookingTime: new FormControl('', [Validators.required]),
       cuisine: new FormControl('', [Validators.required]),
+      reviews: new FormControl([]),
+      id: new FormControl(''),
     });
   }
 
@@ -40,7 +42,6 @@ export class AddRecipeDialogComponent implements OnInit {
     // Add our ingredient
     if (value) {
       this.ingredients.push(value);
-      this.addRecipeForm.get('ingredients').setValue(this.ingredients);
     }
     // Clear the input value
     event.chipInput!.clear();
@@ -51,7 +52,6 @@ export class AddRecipeDialogComponent implements OnInit {
 
     if (index >= 0) {
       this.ingredients.splice(index, 1);
-      this.addRecipeForm.get('ingredients').setValue(this.ingredients);
     }
   }
 

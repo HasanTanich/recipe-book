@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { AddRecipeDialogComponent } from './add-recipe-dialog/add-recipe-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DataService } from 'src/app/core/services/data.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-recipes',
@@ -14,7 +15,7 @@ export class ManageRecipesComponent implements OnInit {
   recipes;
   addedRecipeValue: FormGroup;
 
-  constructor(public dataService: DataService, public dialog: MatDialog) { }
+  constructor(public dataService: DataService, public dialog: MatDialog, public notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.getRecipes();
@@ -43,6 +44,8 @@ export class ManageRecipesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        result.form['ingredients'] = result.ingredients.ingredients;
+        result = result.form;
         this.dataService.addData(result, 'recipes');
         this.recipes.push(result);
       }

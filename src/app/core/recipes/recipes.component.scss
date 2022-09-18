@@ -26,13 +26,13 @@
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     width: 100%;
-    height: 67%;
+    height: 65%;
     object-fit: cover;
     cursor: pointer;
 }
 
 .card-info {
-    height: 33%;
+    height: 35%;
     padding: 5%;
 }
 
@@ -56,4 +56,81 @@
     position: absolute;
     top: 50%;
     left: 50%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        padding-top: 16%;
+    }
+
+    .recipes-title {
+        font-size: 30px
+    }
+
+    .card-info p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        padding-top: 20%;
+    }
+
+    .recipes-title {
+        font-size: 27px
+    }
+
+    .recipe-img {
+        height: 70%;
+    }
+
+    .card-info {
+        height: 30%;
+    }
+
+    .card-info p {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .container {
+        padding-top: 25%;
+    }
+
+    .recipes-title {
+        font-size: 23px
+    }
+
+    .card-info p {
+        font-size: 11px;
+    }
+
+    .recipe-card {
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .container {
+        padding: 30% 2% 30% 6%;
+    }
+
+    .recipes-title {
+        font-size: 20px
+    }
+
+    .card-info p {
+        font-size: 10px;
+    }
+
+    .recipe-card {
+        width: 45%;
+    }
+
+    .recipes-title {
+        margin-bottom: 10%;
+    }
+
 }

@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   searchOptions: string[] = [];
   filteredSearchOptions: Observable<string[]>;
 
-  loggedIn: boolean;
+  loggedIn: boolean = false;
   recipes: Promise<Recipe[]>;
   constructor(private auth: AuthService, private dataService: DataService, private router: Router) { }
 

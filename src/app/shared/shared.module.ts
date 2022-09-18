@@ -56,6 +56,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     RecipeCardsComponent,
     NgImageSliderModule,
     ConfirmPromptComponent,
+    MatAutocompleteModule,
   ],
 })
 export class SharedModule { }

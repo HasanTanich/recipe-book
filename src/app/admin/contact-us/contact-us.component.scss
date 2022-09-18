@@ -8,7 +8,6 @@
     // background-repeat: no-repeat;
     // background-size: cover;
     background-color: rgb(187, 234, 250);
-
 }
 
 .contact-box {
@@ -62,7 +61,7 @@
 }
 
 .messages-list {
-    margin-top: 2%;
+    margin-top: 5%;
     padding: 8%;
 }
 
@@ -74,4 +73,28 @@
     position: absolute;
     right: 0;
     font-size: 22px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .messages-list {
+        margin-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .messages-list {
+        margin-top: 12%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .messages-list {
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .messages-list {
+        margin-top: 20%;
+    }
 }

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactUs } from 'src/app/core/models/contactus.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { DataService } from 'src/app/core/services/data.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
 
 
@@ -25,7 +26,7 @@ export class ContactComponent implements OnInit {
     message: new FormControl('', Validators.required),
   });
 
-  constructor(public dataService: DataService, public authService: AuthService, public dialog: MatDialog) { }
+  constructor(public dataService: DataService, public authService: AuthService, public dialog: MatDialog, public notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.isAdmin = this.authService.Authenticated();

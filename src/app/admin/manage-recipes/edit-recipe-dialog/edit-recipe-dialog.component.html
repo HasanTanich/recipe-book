@@ -17,7 +17,7 @@
                 </mat-chip>
                 <input placeholder="New ingredient..." [matChipInputFor]="chipList"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-                    (matChipInputTokenEnd)="add($event)" formControlName="ingredients" minlength="5" maxlength="100">
+                    (matChipInputTokenEnd)="add($event)" formControlName="ingredients">
             </mat-chip-list>
         </mat-form-field>
 
@@ -51,7 +51,7 @@
     </table>
     <div class="bottom-buttons">
         <button mat-raised-button color="primary" type="submit" [disabled]="editRecipeForm.invalid"
-            [mat-dialog-close]="editRecipeForm.value">Update</button>
+            [mat-dialog-close]="{form : editRecipeForm.value, ingredients: {ingredients} }">Update</button>
         <button mat-raised-button (click)="onCancel()">Cancel</button>
     </div>
 </form>

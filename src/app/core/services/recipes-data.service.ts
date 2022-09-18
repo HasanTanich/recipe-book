@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, getDocs, doc, query, where } from '@angular/fire/firestore';
-import { Recipe } from '../models/recipe.model';
+import { Firestore, collection, getDocs, doc, query, where, updateDoc, arrayUnion, arrayRemove } from '@angular/fire/firestore';
+import { Review } from '../models/review.model';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Recipe } from '../models/recipe.model';
 
 export class RecipesDataService {
 
-  constructor(public firestore: Firestore) { }
+  constructor(public firestore: Firestore, public notificationService: NotificationService) { }
 
   async getRecipesFromCuisine(cuisineName: string) {
     const data = [];
@@ -34,4 +35,10 @@ export class RecipesDataService {
     return data;
   }
 
+  async addReviewToRecipe(review: Review, id: string) {
+    const q = doc(this.firestore, "recipes", id);
+    await updateDoc(q, {
+      reviews: arrayUnion(review)
+    });
+  }
 }

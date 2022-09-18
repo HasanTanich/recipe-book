@@ -15,20 +15,24 @@ export class EditRecipeDialogComponent implements OnInit {
   editRecipeForm: FormGroup;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER] as const;
+
   ingredients: any[] = [];
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: Recipe,
-    public dialogRef: MatDialogRef<EditRecipeDialogComponent>) { }
+    public dialogRef: MatDialogRef<EditRecipeDialogComponent>) {
+  }
 
   ngOnInit(): void {
     this.editRecipeForm = new FormGroup({
       name: new FormControl(this.data.name, [Validators.required]),
       mealType: new FormControl(this.data.mealType, [Validators.required]),
       image: new FormControl(this.data.image, [Validators.required]),
-      ingredients: new FormControl(this.data.ingredients, [Validators.required]),
+      ingredients: new FormControl(''),
       cookingTime: new FormControl(this.data.cookingTime, [Validators.required]),
       cuisine: new FormControl(this.data.cuisine, [Validators.required]),
       id: new FormControl(this.data.id),
     });
+    this.ingredients = this.data.ingredients.slice();
   }
 
   onCancel() {
@@ -41,7 +45,6 @@ export class EditRecipeDialogComponent implements OnInit {
     // Add our ingredient
     if (value) {
       this.ingredients.push(value);
-      this.editRecipeForm.get('ingredients').setValue(this.ingredients);
     }
     // Clear the input value
     event.chipInput!.clear();
@@ -52,7 +55,6 @@ export class EditRecipeDialogComponent implements OnInit {
 
     if (index >= 0) {
       this.ingredients.splice(index, 1);
-      this.editRecipeForm.get('ingredients').setValue(this.ingredients);
     }
   }
 

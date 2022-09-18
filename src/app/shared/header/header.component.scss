@@ -25,7 +25,7 @@
 .header-search-bar {
     background-color: white;
     padding: 24px 10px;
-    width: 45%;
+    width: 30%;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -59,8 +59,9 @@
     -webkit-appearance: none;
     width: 100%;
     border: 1px solid #ddd;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
+    // border-top-right-radius: 18px;
+    // border-bottom-right-radius: 18px;
+    border-radius: 18px;
 }
 
 .search-icon {
@@ -75,27 +76,29 @@
     color: #323c41;
 }
 
-.header-category-button {
-    background-color: #f2f2f2;
-    height: 35px;
-    margin-right: 6px;
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
-    padding: 0px 15px;
-    border: 1px solid #ddd;
-    color: #323c41;
-    min-width: 20%;
-    max-width: 140px;
-    font-weight: bold;
-}
+// might use later
 
-.header-category-button:hover {
-    transform: scale(1.02);
-}
+// .header-category-button {
+//     background-color: #f2f2f2;
+//     height: 35px;
+//     margin-right: 6px;
+//     border-top-left-radius: 18px;
+//     border-bottom-left-radius: 18px;
+//     padding: 0px 15px;
+//     border: 1px solid #ddd;
+//     color: #323c41;
+//     min-width: 20%;
+//     max-width: 140px;
+//     font-weight: bold;
+// }
+
+// .header-category-button:hover {
+//     transform: scale(1.02);
+// }
 
 .header-nav-menu {
     display: flex;
-    width: 34%;
+    width: 45%;
     align-items: center;
     justify-content: space-between;
 }
@@ -127,6 +130,9 @@
     border-bottom: 2px solid #323c41;
 }
 
+.header-nav-menu-smaller-devices {
+    display: none;
+}
 
 @media only screen and (max-width: 1200px) {
     .nav-menu-btn {
@@ -153,12 +159,29 @@
         font-size: 11px;
     }
 
-    // .header-nav-menu-smaller-devices {
-    //     background-color: pink;
-    // }
+    .responsive-menu {
+        display: none;
+    }
+
+    .header-nav-menu-smaller-devices {
+        display: flex;
+    }
+
+    .logout {
+        background-color: #323c41;
+        color: #fff !important;
+    }
 
     .title {
         font-size: 20px;
+    }
+
+    .header-title {
+        width: 30%;
+    }
+
+    .header-search-bar {
+        width: 45%;
     }
 }
 
