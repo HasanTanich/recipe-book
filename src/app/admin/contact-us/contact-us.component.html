@@ -10,7 +10,7 @@
                 {{ "Minimum 4 characters and max 20" }}
             </mat-error>
             <label for="email">Email address</label>
-            <input matInput class="email-input" type="text" formControlName="email">
+            <input class="email-input" type="text" formControlName="email">
             <mat-error *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched">
                 {{ emailErrorMessage() }}
             </mat-error>
