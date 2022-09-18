@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Image } from '../models/imageslider.model';
+import { Recipe } from '../models/recipe.model';
+import { DataService } from '../services/data.service';
+import { RecipesDataService } from '../services/recipes-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,52 +12,32 @@ import { Component, OnInit } from '@angular/core';
 
 export class DashboardComponent implements OnInit {
 
-  imageObject: Array<object> = [{
-    image: 'assets/images/raw-giant-shrimps.jpg',
-    thumbImage: 'assets/images/raw-giant-shrimps.jpg',
-    alt: 'alt of image',
-    title: 'title of image'
-  }
-    , {
-    image: 'assets/images/food.jpg', // Support base64 image
-    thumbImage: 'assets/images/food.jpg', // Support base64 image
-    title: 'Image title', //Optional: You can use this key if want to show image with title
-    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-    order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-  }
-    , {
-    image: 'assets/images/food.jpg', // Support base64 image
-    thumbImage: 'assets/images/food.jpg', // Support base64 image
-    title: 'Image title', //Optional: You can use this key if want to show image with title
-    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-    order: 2 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-  }
-    , {
-    image: 'assets/images/raw-giant-shrimps.jpg', // Support base64 image
-    thumbImage: 'assets/images/raw-giant-shrimps.jpg', // Support base64 image
-    title: 'Image title', //Optional: You can use this key if want to show image with title
-    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-    order: 3 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-  }
-    , {
-    image: 'assets/images/raw-giant-shrimps.jpg', // Support base64 image
-    thumbImage: 'assets/images/raw-giant-shrimps.jpg', // Support base64 image
-    title: 'Image title', //Optional: You can use this key if want to show image with title
-    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-    order: 4 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-  }
-    , {
-    image: 'assets/images/food.jpg', // Support base64 image
-    thumbImage: 'assets/images/food.jpg', // Support base64 image
-    title: 'Image title', //Optional: You can use this key if want to show image with title
-    alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-    order: 5 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-  }
-  ];
+  imagesGallery: Image[] = [];
+  ItalianRecipes: Promise<Recipe[]>;
+  ChineseRecipes: Promise<Recipe[]>;
+  SyrianRecipes: Promise<Recipe[]>;
+  BritishRecipes: Promise<Recipe[]>;
 
-  constructor() { }
+
+  constructor(public dataService: DataService, public recipeData: RecipesDataService) { }
 
   ngOnInit(): void {
+    this.ItalianRecipes = this.recipeData.getRecipesFromCuisine('Italian');
+    this.ChineseRecipes = this.recipeData.getRecipesFromCuisine('Chinese');
+    this.SyrianRecipes = this.recipeData.getRecipesFromCuisine('Syrian');
+    this.BritishRecipes = this.recipeData.getRecipesFromCuisine('British');
+
+    this.dataService.getData('recipes').then((data) => {
+      data.map(d => {
+        let temp = {
+          image: d.image,
+          thumbImage: d.image,
+          title: d.name,
+          alt: d.name
+        }
+        this.imagesGallery.push(temp);
+      });
+    });
   }
 
 }

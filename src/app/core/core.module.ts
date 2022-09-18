@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
-import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NgImageSliderModule } from 'ng-image-slider';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatListModule } from '@angular/material/list';
+import { RecipesComponent } from './recipes/recipes.component';
 
 @NgModule({
   declarations: [
-    ContactComponent,
-    DashboardComponent
+    DashboardComponent,
+    RecipesComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
-    NgImageSliderModule,
+    CdkTableModule,
+    MatListModule,
   ],
 })
 

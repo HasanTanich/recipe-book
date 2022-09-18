@@ -1,0 +1,14 @@
+<div class="recipes-title">
+    <h1>{{Cuisine}} Cuisine</h1>
+    <a [routerLink]="['/recipes', Cuisine]" class="view-all-recipes">View
+        All</a>
+</div>
+
+<p class="recipes-description">Check out these amazing dishes from the {{Cuisine}} kitchen!</p>
+
+<div class="recipes-cards">
+
+    <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', height: '300px', space: 10}"
+        fetchpriority="high" [imagePopup]="false" (imageClick)="goToRecipe($event)">
+    </ng-image-slider>
+</div>

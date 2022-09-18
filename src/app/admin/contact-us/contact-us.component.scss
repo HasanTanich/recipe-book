@@ -4,13 +4,16 @@
     align-items: center;
     text-align: center;
     min-height: 100vh;
+    // background-image: url('../../../assets/images/background-food.jpg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: rgb(187, 234, 250);
 }
 
 .contact-box {
     width: 650px;
     height: 700px;
     border-radius: 6px;
-    background-color: lightblue;
 }
 
 .box-title {
@@ -49,26 +52,54 @@
 
 .submit-btn {
     margin-top: 7%;
-    color: #ffffff;
-    background-color: #238636;
-    border-color: #238636;
-    position: relative;
-    display: inline-block;
-    padding: 5px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
     user-select: none;
-    border: 1px solid;
     border-radius: 6px;
-    -webkit-appearance: none;
-    appearance: none;
 }
 
 .admin {
     display: none;
+}
+
+.messages-list {
+    margin-top: 5%;
+    padding: 8%;
+}
+
+.admin-messages-title {
+    margin-bottom: 2%;
+}
+
+.mat-error {
+    margin-top: 1%;
+    font-size: 12px;
+}
+
+.mat-selection-list .mat-list-option .delete-btn {
+    position: absolute;
+    right: 0;
+    font-size: 22px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .messages-list {
+        margin-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .messages-list {
+        margin-top: 12%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .messages-list {
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .messages-list {
+        margin-top: 20%;
+    }
 }

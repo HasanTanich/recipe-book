@@ -1,60 +1,34 @@
 <app-header></app-header>
 <div class="container">
     <div class="home-cover-img">
-        <img class="cover-img" [src]="'assets/images/raw-giant-shrimps.jpg'" alt="">
+        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '100%'}" [showArrow]="false"
+            [infinite]="true" [autoSlide]="3" slideImage="1" fetchpriority="high">
+        </ng-image-slider>
     </div>
-
 
     <div class="top-category">
-        <ng-image-slider [images]="imageObject" #nav [imageSize]="{width: '25%', height: '25%'}">
+        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', space: 10}" fetchpriority="high">
         </ng-image-slider>
-        <!-- <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/food.jpg" alt="">
-        </div>
-        <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/raw-giant-shrimps.jpg" alt="">
-        </div>
-        <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/background-food.jpg" alt="">
-        </div>
-        <div class="top-category-item">
-            <img class="top-category-item-img" src="../assets/images/food.jpg" alt="">
-        </div> -->
     </div>
+
     <div class="swipe-recipes">
+
         <div class="recipes-row">
-            <div class="recipes-title">
-                <h1>Recipes of the Day</h1>
-                <a href="">View ALL</a>
-            </div>
-            <p class="recipes-description">Check out our featured recipe for today! This recipe is the most popular
-                and trendy recipe that you'd definitely want to give a try!</p>
-            <div class="recipes-cards">
-                <div class="recipe-card">
-                    <img class="recipe-img" [src]="'assets/images/food.jpg'" alt="">
-                    <div class="card-info">
-                        <p class="recipe-name">Fish</p>
-                        <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
-                        <p>rating XD</p>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <img class="recipe-img" [src]="'assets/images/food.jpg'" alt="">
-                    <div class="card-info">
-                        <p class="recipe-name">Fish</p>
-                        <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
-                        <p>rating XD</p>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <img class="recipe-img" [src]="'assets/images/food.jpg'" alt="">
-                    <div class="card-info">
-                        <p class="recipe-name">Fish</p>
-                        <p class="recipe-chef"><span style="font-weight: 200;">by</span> Chef Gordo </p>
-                        <p>rating XD</p>
-                    </div>
-                </div>
-            </div>
+            <app-recipe-cards [Cuisine]="'Italian'" [recipes]="ItalianRecipes"></app-recipe-cards>
         </div>
+
+        <div class="recipes-row">
+            <app-recipe-cards [Cuisine]="'Syrian'" [recipes]="SyrianRecipes"></app-recipe-cards>
+        </div>
+
+        <div class="recipes-row">
+            <app-recipe-cards [Cuisine]="'Chinese'" [recipes]="ChineseRecipes"></app-recipe-cards>
+        </div>
+
+        <div class="recipes-row">
+            <app-recipe-cards [Cuisine]="'British'" [recipes]="BritishRecipes"></app-recipe-cards>
+        </div>
+
     </div>
+
 </div>
