@@ -6,12 +6,21 @@
         <form [formGroup]="contactForm" class="contact-form">
             <label for="name">Name</label>
             <input class="name-input" minlength="4" maxlength="20" type="text" formControlName="name">
+            <mat-error *ngIf="contactForm.get('name').invalid && contactForm.get('name').touched">
+                {{ "Minimum 4 characters and max 20" }}
+            </mat-error>
             <label for="email">Email address</label>
-            <input class="email-input" type="text" formControlName="email">
+            <input matInput class="email-input" type="text" formControlName="email">
+            <mat-error *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched">
+                {{ emailErrorMessage() }}
+            </mat-error>
             <label for="message">Message</label>
-            <textarea class="message-input" rows="10" minlength="50" maxlength="300" cdkTextareaAutosize
+            <textarea class="message-input" rows="10" minlength="25" maxlength="300" cdkTextareaAutosize
                 cdkAutosizeMinRows="5" formControlName="message">
             </textarea>
+            <mat-error *ngIf="contactForm.get('message').invalid && contactForm.get('message').touched">
+                {{ "Field is required! Minimum 25 characters and max 300 characters" }}
+            </mat-error>
             <button mat-raised-button color="primary" class="submit-btn" type="submit" (click)="sendMessage()"
                 [disabled]="contactForm.invalid">Submit</button>
         </form>

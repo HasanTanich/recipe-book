@@ -40,6 +40,7 @@ export class ContactComponent implements OnInit {
 
   sendMessage() {
     this.dataService.addData(this.contactForm.value, 'contact-us');
+    this.contactForm.reset();
   }
 
   showMessage(user: ContactUs) {
@@ -49,13 +50,17 @@ export class ContactComponent implements OnInit {
   }
 
   deleteMessage(user: ContactUs) {
-
     this.users = this.users.filter(u => {
       return u !== user;
     });
-
     this.dataService.deleteData('contact-us', user.id)
+  }
 
+  emailErrorMessage() {
+    if (this.contactForm.get('email').hasError('required')) {
+      return '* Email field is required';
+    }
+    return this.contactForm.get('email').hasError('email') ? 'Not a valid email' : '';
   }
 
 }
