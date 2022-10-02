@@ -1,5 +1,7 @@
 <app-header></app-header>
+
 <div class="container">
+
     <div class="home-cover-img">
         <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '100%'}" [showArrow]="false"
             [infinite]="true" [autoSlide]="3" slideImage="1" fetchpriority="high">
@@ -27,6 +29,10 @@
 
         <div class="recipes-row">
             <app-recipe-cards [Cuisine]="'British'" [recipes]="BritishRecipes"></app-recipe-cards>
+        </div>
+
+        <div class="recipes-row">
+            <app-recipe-cards [Cuisine]="'Japanese'" [recipes]="JapaneseRecipes"></app-recipe-cards>
         </div>
 
     </div>

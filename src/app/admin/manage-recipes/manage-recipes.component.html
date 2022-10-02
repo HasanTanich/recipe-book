@@ -1,17 +1,43 @@
 <app-header></app-header>
 
 <div class="container">
+
     <div class="title-box">
         <h1>Manage Recipes</h1>
+        <div class="search-bar">
+            <mat-form-field class="search-form">
+                <mat-label>Search recipes</mat-label>
+                <input matInput type="search" name="recipes-input" id="recipes-input" [(ngModel)]="searchText" #search
+                    placeholder="Search recipe name, cuisine or meal type">
+            </mat-form-field>
+        </div>
         <button mat-raised-button color="primary" (click)="addRecipe()">Add Recipe</button>
     </div>
+
     <div class="recipes-list-box">
-        <mat-list role="list">
-            <mat-list-item role="listitem" *ngFor="let recipe of recipes">
+
+        <mat-list role="list" *ngIf="!searchText">
+            <mat-list-item role="listitem"
+                *ngFor="let recipe of recipes | filter: searchText | slice : 0:recipesLength">
                 <app-recipe [recipe]="recipe" style="width: 100%; height: 100%" (recipeDeleted)="recipeDeleted($event)"
                     (recipeUpdated)="recipeUpdated($event)">
                 </app-recipe>
             </mat-list-item>
         </mat-list>
+
+        <mat-list role="list" *ngIf="searchText">
+            <mat-list-item role="listitem" *ngFor="let recipe of recipes | filter: searchText">
+                <app-recipe [recipe]="recipe" style="width: 100%; height: 100%" (recipeDeleted)="recipeDeleted($event)"
+                    (recipeUpdated)="recipeUpdated($event)">
+                </app-recipe>
+            </mat-list-item>
+        </mat-list>
+
     </div>
+
+    <div class="show-more" *ngIf="!searchText">
+        <button mat-raised-button color="primary" class="show-more-button" (click)="showMore()"
+            [disabled]="recipesLength >= recipes?.length">Show more</button>
+    </div>
+
 </div>

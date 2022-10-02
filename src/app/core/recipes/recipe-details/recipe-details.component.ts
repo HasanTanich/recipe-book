@@ -13,6 +13,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe;
   reviews = [];
+
   addReviewForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     comment: new FormControl('', Validators.required),
@@ -25,6 +26,7 @@ export class RecipeDetailsComponent implements OnInit {
     this.route.data.subscribe((data: Data) => {
       this.recipe = data['recipe'];
     });
+
     if (this.recipe.reviews) this.reviews = this.recipe.reviews;
   }
 

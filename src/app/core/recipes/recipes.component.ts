@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Data, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, Router, Data } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -11,7 +11,8 @@ export class RecipesComponent implements OnInit {
   recipes;
   cuisine;
   searchResults;
-  constructor(public dataService: DataService, private router: Router, private route: ActivatedRoute) {
+
+  constructor(public dataService: DataService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {

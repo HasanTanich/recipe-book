@@ -30,7 +30,7 @@ export class RecipesDataService {
     const querySnapshot = await getDocs(q);
     await querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      data = doc.data();
+      data = { ...doc.data(), id: doc.id };
     });
     return data;
   }

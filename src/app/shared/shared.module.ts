@@ -17,7 +17,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PageNotFoundComponent,
     RecipeCardsComponent,
     ConfirmPromptComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
@@ -57,6 +58,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NgImageSliderModule,
     ConfirmPromptComponent,
     MatAutocompleteModule,
+    FilterPipe,
   ],
 })
 export class SharedModule { }

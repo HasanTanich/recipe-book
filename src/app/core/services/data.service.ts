@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { addDoc, Firestore, collection, getDocs, deleteDoc, updateDoc, doc } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
 
 @Injectable({
@@ -9,32 +8,34 @@ import { NotificationService } from './notification.service';
 
 export class DataService {
 
-  constructor(public firestore: Firestore, private notificationService: NotificationService, private router: Router) { }
-  private data;
+  constructor(public firestore: Firestore, private notificationService: NotificationService) { }
 
-  addData(value: any, collectionName: string) {
+  async addData(value: any, collectionName: string) {
+    let data;
     const dbInstance = collection(this.firestore, collectionName);
-    addDoc(dbInstance, value)
+    await addDoc(dbInstance, value)
       .then(() => {
         this.notificationService.openSnackBar("Done!");
+        data = this.getData(collectionName);
       })
       .catch((err) => {
         this.notificationService.openSnackBar(err.message);
       });
+    return data;
   }
 
   async getData(collectionName: string) {
-
+    let data;
     const dbInstance = collection(this.firestore, collectionName);
     await getDocs(dbInstance)
       .then((response) => {
-        this.data = [...response.docs.map((item) => {
+        data = [...response.docs.map((item) => {
           return { ...item.data(), id: item.id }
         })];
       }).catch((err) => {
         this.notificationService.openSnackBar(err.message);
       });
-    return this.data;
+    return data;
   }
 
   updateData(collectionName: string, newdata) {

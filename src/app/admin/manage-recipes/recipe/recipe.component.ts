@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Recipe } from 'src/app/core/models/recipe.model';
 import { DataService } from 'src/app/core/services/data.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
@@ -14,8 +14,8 @@ import { EditRecipeDialogComponent } from '../edit-recipe-dialog/edit-recipe-dia
 
 export class RecipeComponent implements OnInit {
 
-  @Input() recipe;
 
+  @Input() recipe;
   @Output() recipeDeleted = new EventEmitter<Recipe>();
   @Output() recipeUpdated = new EventEmitter<Recipe>();
 
