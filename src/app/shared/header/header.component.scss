@@ -59,9 +59,8 @@
     -webkit-appearance: none;
     width: 100%;
     border: 1px solid #ddd;
-    // border-top-right-radius: 18px;
-    // border-bottom-right-radius: 18px;
-    border-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
 }
 
 .search-icon {
@@ -78,23 +77,35 @@
 
 // might use later
 
-// .header-category-button {
-//     background-color: #f2f2f2;
-//     height: 35px;
-//     margin-right: 6px;
-//     border-top-left-radius: 18px;
-//     border-bottom-left-radius: 18px;
-//     padding: 0px 15px;
-//     border: 1px solid #ddd;
-//     color: #323c41;
-//     min-width: 20%;
-//     max-width: 140px;
-//     font-weight: bold;
-// }
+.header-category-button {
+    background-color: #f2f2f2;
+    min-width: 25%;
+    max-width: 140px;
+    height: 35px;
+    margin-right: 6px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    padding: 0px 15px;
+    border: 1px solid #ddd;
+    color: #323c41;
+    font-weight: bold;
+    position: relative;
+}
 
-// .header-category-button:hover {
-//     transform: scale(1.02);
-// }
+.category-arrow {
+    position: absolute;
+    right: 3%;
+    top: 15%;
+}
+
+.header-category-button:hover {
+    transform: scale(1.02);
+}
+
+.menu-btn-item {
+    width: 200px;
+}
+
 
 .header-nav-menu {
     display: flex;

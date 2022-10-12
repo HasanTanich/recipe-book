@@ -46,6 +46,7 @@ export class ManageRecipesComponent implements OnInit {
     await dialogRef.afterClosed().subscribe(result => {
       if (result) {
         result.form['ingredients'] = result.ingredients.ingredients;
+        result.form['tags'] = result.tags.tags;
         result = result.form;
         this.dataService.addData(result, 'recipes').then(items => {
           this.recipes = items;

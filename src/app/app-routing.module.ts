@@ -17,14 +17,15 @@ const routes: Routes = [
   { path: 'homepage', component: DashboardComponent },
   { path: 'admin', canActivate: [AuthGuard], component: AdminComponent },
   { path: 'recipes', component: RecipesComponent, resolve: { recipes: AllRecipesResolver } },
-  { path: 'recipes/:cuisine', component: RecipesComponent, resolve: { filterRecipesByCuisine: FilterRecipesResolver } },
+  { path: 'recipes/cuisine/:cuisine', component: RecipesComponent, resolve: { filterRecipesByCuisine: FilterRecipesResolver } },
+  { path: 'recipes/mealType/:mealType', component: RecipesComponent, resolve: { filterRecipesByMealType: FilterRecipesResolver } },
   { path: 'recipes/search/:key', component: RecipesComponent, resolve: { searchRecipes: SearchRecipesResolver } },
   { path: 'recipe-details/:name', component: RecipeDetailsComponent, resolve: { recipe: RecipeDetailsResolver } },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 

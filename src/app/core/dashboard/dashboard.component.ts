@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit {
   SyrianRecipes: Promise<Recipe[]>;
   BritishRecipes: Promise<Recipe[]>;
   JapaneseRecipes: Promise<Recipe[]>;
-
+  AmericanRecipes: Promise<Recipe[]>;
+  MoroccanRecipes: Promise<Recipe[]>;
 
   constructor(public dataService: DataService, public recipeData: RecipesDataService) { }
 
@@ -28,6 +29,8 @@ export class DashboardComponent implements OnInit {
     this.SyrianRecipes = this.recipeData.getRecipesFromCuisine('Syrian');
     this.BritishRecipes = this.recipeData.getRecipesFromCuisine('British');
     this.JapaneseRecipes = this.recipeData.getRecipesFromCuisine('Japanese');
+    this.AmericanRecipes = this.recipeData.getRecipesFromCuisine('American');
+    this.MoroccanRecipes = this.recipeData.getRecipesFromCuisine('Moroccan');
 
     this.dataService.getData('recipes').then((data) => {
       data.map(d => {

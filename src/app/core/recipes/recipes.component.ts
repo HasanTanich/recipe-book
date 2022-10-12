@@ -12,6 +12,10 @@ export class RecipesComponent implements OnInit {
   cuisine;
   searchResults;
 
+  cookingTimeFilter: boolean = false;
+  nameFilter: boolean = false;
+  cuisineFilter: boolean = false;
+
   constructor(public dataService: DataService, private route: ActivatedRoute) {
   }
 
@@ -27,7 +31,21 @@ export class RecipesComponent implements OnInit {
         this.recipes = data['searchRecipes'];
         this.searchResults = this.route.snapshot.params['key'];
       }
+      else if (data['filterRecipesByMealType']) {
+        this.recipes = data['filterRecipesByMealType'];
+        this.searchResults = this.route.snapshot.params['mealType'];
+      }
     });
+  }
+
+  cookingTimeActive() {
+    this.cookingTimeFilter = !this.cookingTimeFilter;
+  }
+  nameActive() {
+    this.nameFilter = !this.nameFilter;
+  }
+  cuisineActive() {
+    this.cuisineFilter = !this.cuisineFilter;
   }
 
 }

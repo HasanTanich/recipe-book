@@ -24,7 +24,20 @@ export class RecipesDataService {
     return data;
   }
 
-  async getRecipesFromName(recipeName: string) {
+  async getRecipesFromMealType(mealType: string) {
+    const data = [];
+    const q = query(collection(this.firestore, "recipes"), where("mealType", "==", mealType));
+    const querySnapshot = await getDocs(q);
+
+    await querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      data.push(doc.data());
+    });
+    console.log(data);
+    return data;
+  }
+
+  async gerRecipeFromName(recipeName: string) {
     let data;
     const q = query(collection(this.firestore, "recipes"), where("name", "==", recipeName));
     const querySnapshot = await getDocs(q);
@@ -37,8 +50,12 @@ export class RecipesDataService {
 
   async addReviewToRecipe(review: Review, id: string) {
     const q = doc(this.firestore, "recipes", id);
-    await updateDoc(q, {
-      reviews: arrayUnion(review)
-    });
+    try {
+      await updateDoc(q, {
+        reviews: arrayUnion(review)
+      });
+    } catch {
+      this.notificationService.openSnackBar('Something went wrong! Please try again later.');
+    }
   }
 }
