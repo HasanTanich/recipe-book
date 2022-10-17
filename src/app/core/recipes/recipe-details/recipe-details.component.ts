@@ -26,12 +26,12 @@ export class RecipeDetailsComponent implements OnInit {
     this.route.data.subscribe((data: Data) => {
       this.recipe = data['recipe'];
     });
-
     if (this.recipe.reviews) this.reviews = this.recipe.reviews;
   }
 
   onSubmitReview(review: Review, id: string) {
     this.recipeDataService.addReviewToRecipe(review, id);
     this.reviews.push(review);
+    this.addReviewForm.reset();
   }
 }

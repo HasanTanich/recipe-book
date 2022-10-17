@@ -45,6 +45,7 @@ export class RecipeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         result.form['ingredients'] = result.ingredients.ingredients;
+        result.form['tags'] = result.tags.tags;
         result = result.form;
         this.dataService.updateData('recipes', result);
         this.recipeUpdated.emit(result);

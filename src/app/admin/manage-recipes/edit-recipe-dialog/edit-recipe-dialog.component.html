@@ -6,18 +6,34 @@
             <mat-label>Recipe name</mat-label>
             <input matInput formControlName="name" minlength="3" maxlength="50">
         </mat-form-field>
+
         <mat-form-field class="full-width ingredients" appearance="fill">
             <mat-label>Recipe ingredients</mat-label>
-            <mat-chip-list #chipList aria-label="ingredient selection">
-                <mat-chip *ngFor="let ingredient of ingredients" (removed)="remove(ingredient)">
+            <mat-chip-list #ingredientsList aria-label="ingredient selection">
+                <mat-chip *ngFor="let ingredient of ingredients" (removed)="removeIngredient(ingredient)">
                     {{ingredient}}
                     <button matChipRemove>
                         <mat-icon>cancel</mat-icon>
                     </button>
                 </mat-chip>
-                <input placeholder="New ingredient..." [matChipInputFor]="chipList"
+                <input placeholder="New ingredient..." [matChipInputFor]="ingredientsList"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-                    (matChipInputTokenEnd)="add($event)" formControlName="ingredients">
+                    (matChipInputTokenEnd)="addIngredient($event)" formControlName="ingredients">
+            </mat-chip-list>
+        </mat-form-field>
+
+        <mat-form-field class="full-width tags" appearance="fill">
+            <mat-label>Recipe tags</mat-label>
+            <mat-chip-list #tagsList aria-label="tag selection">
+                <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)">
+                    {{tag}}
+                    <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip>
+                <input placeholder="New tag..." [matChipInputFor]="tagsList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="addTag($event)" formControlName="tags">
             </mat-chip-list>
         </mat-form-field>
 
@@ -51,7 +67,7 @@
     </table>
     <div class="bottom-buttons">
         <button mat-raised-button color="primary" type="submit" [disabled]="editRecipeForm.invalid"
-            [mat-dialog-close]="{form : editRecipeForm.value, ingredients: {ingredients} }">Update</button>
+            [mat-dialog-close]="{form : editRecipeForm.value, ingredients: {ingredients}, tags: {tags} }">Update</button>
         <button mat-raised-button (click)="onCancel()">Cancel</button>
     </div>
 </form>

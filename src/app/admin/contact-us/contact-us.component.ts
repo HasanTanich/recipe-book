@@ -30,10 +30,11 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdmin = this.authService.Authenticated();
+    // fetch data if user is admin
     if (this.isAdmin) {
       this.data = this.dataService.getData('contact-us');
-      this.data.then((e) => {
-        this.users = e;
+      this.data.then((message) => {
+        this.users = message;
       });
     }
   }

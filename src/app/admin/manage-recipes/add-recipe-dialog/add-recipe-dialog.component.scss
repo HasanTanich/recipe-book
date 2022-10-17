@@ -26,6 +26,12 @@ td {
     overflow-x: hidden;
 }
 
+:host ::ng-deep.categories.mat-form-field-appearance-fill .mat-form-field-flex {
+    height: 100px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
 .bottom-buttons {
     display: flex;
     justify-content: space-between;

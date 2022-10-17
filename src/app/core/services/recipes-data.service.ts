@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, getDocs, doc, query, where, updateDoc, arrayUnion, arrayRemove } from '@angular/fire/firestore';
+import { Recipe } from '../models/recipe.model';
 import { Review } from '../models/review.model';
 import { NotificationService } from './notification.service';
 
@@ -11,6 +12,7 @@ export class RecipesDataService {
 
   constructor(public firestore: Firestore, public notificationService: NotificationService) { }
 
+  // fetch recipes with the passed cuisine
   async getRecipesFromCuisine(cuisineName: string) {
     const data = [];
     const q = query(collection(this.firestore, "recipes"), where("cuisine", "==", cuisineName));
@@ -24,7 +26,21 @@ export class RecipesDataService {
     return data;
   }
 
-  async getRecipesFromName(recipeName: string) {
+  // fetch recipes with the passed mealtype
+  async getRecipesFromMealType(mealType: string) {
+    const data = [];
+    const q = query(collection(this.firestore, "recipes"), where("mealType", "==", mealType));
+    const querySnapshot = await getDocs(q);
+
+    await querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      data.push(doc.data());
+    });
+    return data;
+  }
+
+  // fetch recipes with the passed name of the recipe
+  async gerRecipeFromName(recipeName: string) {
     let data;
     const q = query(collection(this.firestore, "recipes"), where("name", "==", recipeName));
     const querySnapshot = await getDocs(q);
@@ -37,8 +53,12 @@ export class RecipesDataService {
 
   async addReviewToRecipe(review: Review, id: string) {
     const q = doc(this.firestore, "recipes", id);
-    await updateDoc(q, {
-      reviews: arrayUnion(review)
-    });
+    try {
+      await updateDoc(q, {
+        reviews: arrayUnion(review)
+      });
+    } catch {
+      this.notificationService.openSnackBar('Something went wrong! Please try again later.');
+    }
   }
 }
