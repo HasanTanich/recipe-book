@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Data } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -35,17 +35,19 @@ export class RecipesComponent implements OnInit {
         this.recipes = data['filterRecipesByMealType'];
         this.searchResults = this.route.snapshot.params['mealType'];
       }
+      this.recipes = Promise.resolve(this.recipes);
     });
   }
 
-  cookingTimeActive() {
-    this.cookingTimeFilter = !this.cookingTimeFilter;
+  cookingTimeToggle(toggle: boolean) {
+    this.cookingTimeFilter = toggle;
   }
-  nameActive() {
-    this.nameFilter = !this.nameFilter;
+
+  nameToggle(toggle: boolean) {
+    this.nameFilter = toggle;
   }
-  cuisineActive() {
-    this.cuisineFilter = !this.cuisineFilter;
+  cuisineToggle(toggle: boolean) {
+    this.cuisineFilter = toggle;
   }
 
 }

@@ -14,7 +14,7 @@
         {{'Search results for: ' + searchResults}}
     </h1>
 
-    <div class="filters-tab">
+    <!-- <div class="filters-tab">
         <button mat-stroked-button class="fitler-btn"
             [ngStyle]="{'background-color': cookingTimeFilter ? '#ffdf36' : 'transparent'}"
             (click)="cookingTimeActive()">cooking time</button>
@@ -22,10 +22,19 @@
             class="fitler-btn" (click)="nameActive()">name</button>
         <button mat-stroked-button [ngStyle]="{'background-color': cuisineFilter ? '#ffdf36' : 'transparent'}"
             class="fitler-btn" (click)="cuisineActive()">cuisine</button>
-    </div>
+    </div> -->
+
+    <app-recipes-filters-tab (cookingTime)="cookingTimeToggle($event)" (name)="nameToggle($event)"
+        (cuisine)="cuisineToggle($event)" [cuisineRecipes]="cuisine">
+    </app-recipes-filters-tab>
 
     <div class="recipes-cards">
-        <div class="recipe-card" *ngFor="let recipe of recipes">
+        <div class="recipe-card" *ngFor="let recipe of recipes 
+            | async 
+            | slice: 0:100 
+            | orderByNumber : cookingTimeFilter : 'cookingTime' 
+            | orderByText : nameFilter : 'name' 
+            | orderByText : cuisineFilter: 'cuisine'">
             <img class="recipe-img" [routerLink]="['/recipe-details', recipe.name]" [state]="recipe"
                 [src]="recipe.image" alt="" fetchpriority="high">
             <div class="card-info">

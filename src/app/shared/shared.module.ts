@@ -18,6 +18,9 @@ import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.componen
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FilterPipe } from './pipes/filter.pipe';
+import { OrderByNumber } from './pipes/order-by.pipe';
+import { orderByText } from './pipes/order-by.pipe';
+import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filters-tab.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     RecipeCardsComponent,
     ConfirmPromptComponent,
     FilterPipe,
+    OrderByNumber,
+    orderByText,
+    RecipesFiltersTabComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +65,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     ConfirmPromptComponent,
     MatAutocompleteModule,
     FilterPipe,
+    OrderByNumber,
+    orderByText,
+    RecipesFiltersTabComponent
   ],
 })
 export class SharedModule { }

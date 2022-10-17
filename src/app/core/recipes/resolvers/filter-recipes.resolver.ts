@@ -20,7 +20,6 @@ export class FilterRecipesResolver implements Resolve<Recipe[]> {
       data = this.recipeDataService.getRecipesFromCuisine(route.params['cuisine']);
     } else if (route.params['mealType']) {
       data = this.recipeDataService.getRecipesFromMealType(route.params['mealType']);
-      console.log(route.params['mealType']);
     }
     return data;
   }

@@ -27,7 +27,6 @@ export class RecipeDetailsComponent implements OnInit {
       this.recipe = data['recipe'];
     });
     if (this.recipe.reviews) this.reviews = this.recipe.reviews;
-    console.log(this.recipe);
   }
 
   onSubmitReview(review: Review, id: string) {

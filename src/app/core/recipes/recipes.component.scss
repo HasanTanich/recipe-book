@@ -10,7 +10,8 @@
 
 .filters-tab {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 3%;
     align-items: center;
     margin-bottom: 3%;
 }
