@@ -10,8 +10,9 @@
                 <mat-icon class="category-arrow">arrow_drop_down</mat-icon>
             </button>
             <mat-menu #categoryMenu="matMenu" class="category-name-menu">
-                <button mat-menu-item [matMenuTriggerFor]="mealTypeMenu" class="menu-btn-item">Meal Type</button>
-                <button mat-menu-item [matMenuTriggerFor]="cuisineMenu">Popular Cuisines</button>
+                <button mat-menu-item [matMenuTriggerFor]="mealTypeMenu" class="menu-btn-item category">Meal
+                    Type</button>
+                <button mat-menu-item [matMenuTriggerFor]="cuisineMenu" class="category">Popular Cuisines</button>
                 <!-- <button mat-menu-item [matMenuTriggerFor]="drinksMenu">Drinks</button> -->
             </mat-menu>
 

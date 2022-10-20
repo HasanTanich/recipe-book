@@ -25,7 +25,7 @@
 .header-search-bar {
     background-color: white;
     padding: 24px 10px;
-    width: 30%;
+    width: 35%;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -57,6 +57,7 @@
     outline: 0;
     border: 0;
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     border: 1px solid #ddd;
     border-top-right-radius: 18px;
@@ -79,7 +80,7 @@
 
 .header-category-button {
     background-color: #f2f2f2;
-    min-width: 25%;
+    min-width: 30%;
     max-width: 140px;
     height: 35px;
     margin-right: 6px;
@@ -94,7 +95,7 @@
 
 .category-arrow {
     position: absolute;
-    right: 3%;
+    right: 0%;
     top: 15%;
 }
 
@@ -104,8 +105,12 @@
 
 .menu-btn-item {
     width: 200px;
+    font-family: 'Montserrat', sans-serif;
 }
 
+.category {
+    font-weight: bold
+}
 
 .header-nav-menu {
     display: flex;
@@ -117,6 +122,10 @@
 /* right side of the header. navigation buttons */
 .nav-menu {
     width: 100%;
+}
+
+button {
+    font-size: 16px;
 }
 
 .nav-menu-btn {
@@ -134,6 +143,7 @@
     padding: 7px 15px;
     border-radius: 18px;
     height: auto;
+    margin-right: 2%;
 }
 
 .nav-menu-btn:hover {
@@ -146,6 +156,10 @@
 }
 
 @media only screen and (max-width: 1200px) {
+    button {
+        font-size: 14px;
+    }
+
     .nav-menu-btn {
         font-size: 14px;
     }
@@ -156,18 +170,16 @@
 }
 
 @media only screen and (max-width: 1024px) {
+    .header-title {
+        width: 30%;
+    }
+
+    .header-search-bar {
+        width: 60%;
+    }
+
     .nav-menu-btn {
         font-size: 12px;
-    }
-
-    .title {
-        font-size: 24px;
-    }
-}
-
-@media only screen and (max-width: 769px) {
-    .nav-menu-btn {
-        font-size: 11px;
     }
 
     .responsive-menu {
@@ -176,27 +188,64 @@
 
     .header-nav-menu-smaller-devices {
         display: flex;
+        width: 8%;
+        justify-content: flex-end;
+    }
+
+    .title {
+        font-size: 24px;
     }
 
     .logout {
         background-color: #323c41;
         color: #fff !important;
+        padding: 0 16px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .header-title {
+        width: 25%;
+    }
+
+    .header-search-bar {
+        width: 65%;
+    }
+
+    .header-nav-menu-smaller-devices {
+        width: 10%;
     }
 
     .title {
         font-size: 20px;
     }
 
+    button {
+        font-size: 12px;
+    }
+
+    .nav-menu-btn {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 485px) {
     .header-title {
-        width: 30%;
+        width: 20%;
     }
 
     .header-search-bar {
         width: 45%;
     }
-}
 
-@media only screen and (max-width: 485px) {
+    .header-nav-menu-smaller-devices {
+        width: 30%;
+    }
+
+    button {
+        font-size: 10px;
+    }
+
     .nav-menu-btn {
         font-size: 10px;
     }

@@ -10,7 +10,11 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
 }
 
 /* Reset margins and paddings on most elements */
