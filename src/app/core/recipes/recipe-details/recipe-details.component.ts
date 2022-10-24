@@ -13,6 +13,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe;
   reviews = [];
+
   addReviewForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     comment: new FormControl('', Validators.required),
@@ -31,5 +32,6 @@ export class RecipeDetailsComponent implements OnInit {
   onSubmitReview(review: Review, id: string) {
     this.recipeDataService.addReviewToRecipe(review, id);
     this.reviews.push(review);
+    this.addReviewForm.reset();
   }
 }

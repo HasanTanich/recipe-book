@@ -36,6 +36,7 @@ export class RecipeCardsComponent implements OnInit {
 
   async goToRecipe(index: number) {
     let recipe;
+
     await this.recipes.then(r => {
       r.map(a => {
         if (a.name == this.imagesGallery[index].title) recipe = a;

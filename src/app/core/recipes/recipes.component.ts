@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Data, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -11,7 +11,12 @@ export class RecipesComponent implements OnInit {
   recipes;
   cuisine;
   searchResults;
-  constructor(public dataService: DataService, private router: Router, private route: ActivatedRoute) {
+
+  cookingTimeFilter: boolean = false;
+  nameFilter: boolean = false;
+  cuisineFilter: boolean = false;
+
+  constructor(public dataService: DataService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -26,7 +31,23 @@ export class RecipesComponent implements OnInit {
         this.recipes = data['searchRecipes'];
         this.searchResults = this.route.snapshot.params['key'];
       }
+      else if (data['filterRecipesByMealType']) {
+        this.recipes = data['filterRecipesByMealType'];
+        this.searchResults = this.route.snapshot.params['mealType'];
+      }
+      this.recipes = Promise.resolve(this.recipes);
     });
+  }
+
+  cookingTimeToggle(toggle: boolean) {
+    this.cookingTimeFilter = toggle;
+  }
+
+  nameToggle(toggle: boolean) {
+    this.nameFilter = toggle;
+  }
+  cuisineToggle(toggle: boolean) {
+    this.cuisineFilter = toggle;
   }
 
 }

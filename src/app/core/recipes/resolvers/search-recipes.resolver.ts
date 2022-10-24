@@ -17,6 +17,7 @@ export class SearchRecipesResolver implements Resolve<Recipe[]> {
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Recipe[]> {
     let data = this.dataService.getData('recipes');
+
     let filteredRecipes = [];
     let searchInput;
 

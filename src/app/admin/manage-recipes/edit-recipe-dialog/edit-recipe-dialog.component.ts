@@ -17,6 +17,7 @@ export class EditRecipeDialogComponent implements OnInit {
   readonly separatorKeysCodes = [ENTER] as const;
 
   ingredients: any[] = [];
+  tags: any[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Recipe,
     public dialogRef: MatDialogRef<EditRecipeDialogComponent>) {
@@ -28,18 +29,20 @@ export class EditRecipeDialogComponent implements OnInit {
       mealType: new FormControl(this.data.mealType, [Validators.required]),
       image: new FormControl(this.data.image, [Validators.required]),
       ingredients: new FormControl(''),
+      tags: new FormControl(''),
       cookingTime: new FormControl(this.data.cookingTime, [Validators.required]),
       cuisine: new FormControl(this.data.cuisine, [Validators.required]),
       id: new FormControl(this.data.id),
     });
     this.ingredients = this.data.ingredients.slice();
+    this.tags = this.data.tags.slice();
   }
 
   onCancel() {
     this.dialogRef.close();
   }
 
-  add(event: MatChipInputEvent): void {
+  addIngredient(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     // Add our ingredient
@@ -50,11 +53,30 @@ export class EditRecipeDialogComponent implements OnInit {
     event.chipInput!.clear();
   }
 
-  remove(ingredient): void {
+  removeIngredient(ingredient): void {
     const index = this.ingredients.indexOf(ingredient);
 
     if (index >= 0) {
       this.ingredients.splice(index, 1);
+    }
+  }
+
+  addTag(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our tag
+    if (value) {
+      this.tags.push(value);
+    }
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removeTag(tag): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
     }
   }
 

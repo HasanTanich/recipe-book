@@ -11,6 +11,7 @@ import { DataService } from 'src/app/core/services/data.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit {
 
   searchInput = new FormControl('', Validators.required);
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   constructor(private auth: AuthService, private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.loggedIn = this.auth.Authenticated();
     this.recipes = this.dataService.getData('recipes');
 

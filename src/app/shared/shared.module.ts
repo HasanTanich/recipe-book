@@ -17,7 +17,10 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { FilterPipe } from './pipes/filter.pipe';
+import { OrderByNumber } from './pipes/order-by.pipe';
+import { orderByText } from './pipes/order-by.pipe';
+import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filters-tab.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PageNotFoundComponent,
     RecipeCardsComponent,
     ConfirmPromptComponent,
+    FilterPipe,
+    OrderByNumber,
+    orderByText,
+    RecipesFiltersTabComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +64,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NgImageSliderModule,
     ConfirmPromptComponent,
     MatAutocompleteModule,
+    FilterPipe,
+    OrderByNumber,
+    orderByText,
+    RecipesFiltersTabComponent
   ],
 })
 export class SharedModule { }

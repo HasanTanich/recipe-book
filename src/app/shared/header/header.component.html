@@ -6,7 +6,42 @@
 
     <div class="header-search-bar">
         <div class="search-bar-span">
-            <!-- <button class="header-category-button">Category</button> -->
+            <button class="header-category-button" [matMenuTriggerFor]="categoryMenu">Category
+                <mat-icon class="category-arrow">arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #categoryMenu="matMenu" class="category-name-menu">
+                <button mat-menu-item [matMenuTriggerFor]="mealTypeMenu" class="menu-btn-item category">Meal
+                    Type</button>
+                <button mat-menu-item [matMenuTriggerFor]="cuisineMenu" class="category">Popular Cuisines</button>
+                <!-- <button mat-menu-item [matMenuTriggerFor]="drinksMenu">Drinks</button> -->
+            </mat-menu>
+
+            <mat-menu #mealTypeMenu="matMenu">
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Dinner']"
+                    class="menu-btn-item">Dinner</button>
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Breakfast']">Breakfast</button>
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Lunch']">Lunch</button>
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Fast food']">Fast Food</button>
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Appetizer']">Appetizer</button>
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Side Dish']">Side Dish</button>
+                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Family Dinner']">Family Dinner</button>
+            </mat-menu>
+
+            <mat-menu #cuisineMenu="matMenu">
+                <button mat-menu-item class="menu-btn-item"
+                    [routerLink]="['/recipes/cuisine', 'Italian']">Italian</button>
+                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'British']">British</button>
+                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'French']">French</button>
+                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'Chinese']">Chinese</button>
+                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'Japanese']">Japanese</button>
+            </mat-menu>
+
+            <!-- <mat-menu #drinksMenu="matMenu">
+                <button mat-menu-item class="menu-btn-item">Smoothie</button>
+                <button mat-menu-item>Tea</button>
+                <button mat-menu-item>Coffee</button>
+            </mat-menu> -->
+
             <form class="header-search-bar-form">
                 <input type="text" placeholder="Search for recipes" aria-label="Number" [formControl]="searchInput"
                     class="search-input" [matAutocomplete]="auto">
@@ -34,7 +69,6 @@
     </div>
 
     <!-- for devices with width 769px and smaller-->
-
     <div class="header-nav-menu-smaller-devices">
         <button mat-button [matMenuTriggerFor]="menu">
             <mat-icon>menu</mat-icon>

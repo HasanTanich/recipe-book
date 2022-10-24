@@ -1,11 +1,27 @@
 .container {
-    padding: 13% 10% 10% 10%;
+    padding: 10% 10% 10% 10%;
     display: block;
     overflow: auto;
 }
 
 .recipes-title {
     margin-bottom: 3%;
+}
+
+.filters-tab {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3%;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.fitler-btn {
+    text-transform: capitalize;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .recipes-cards {
