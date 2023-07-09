@@ -1,84 +1,108 @@
-.header {
-    display: flex;
-    box-shadow: 0 0 6px rgb(0 0 0 / 15%);
-    font-size: 10pt;
-    font-weight: 500;
-    background-color: #fff;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    width: 100%;
+@import "/src/styles/mixins.scss";
+
+@keyframes headerSlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.header-title {
-    width: 20%;
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 10px;
+  box-shadow: 0 0 6px rgb(0 0 0 / 15%);
+  font-size: 10pt;
+  font-weight: 500;
+  background-color: #fff;
+  width: 100%;
+  z-index: 100;
+  transition: 200ms;
+  padding-left: 1rem;
+
+  @include onSmall {
+    padding: 0;
+    gap: unset;
+  }
+
+  & .header-title {
+    flex-basis: 280px;
     display: flex;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
+
+    @include onLarge {
+      flex-basis: 248px;
+      gap: 0.5rem;
+    }
+
+    @include onMedium {
+      flex-basis: 18%;
+      min-width: 80px;
+    }
+
+    & .title {
+      font-size: 32px;
+      cursor: pointer;
+
+      @include onLarge {
+        font-size: 28px;
+      }
+
+      @include onMedium {
+        display: none;
+      }
+    }
+    & .logo {
+      cursor: pointer;
+      width: 4rem;
+      height: 4rem;
+    }
+  }
 }
 
-.title {
-    font-size: 32px;
-    cursor: pointer;
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 10px;
+  box-shadow: 0 0 6px rgb(0 0 0 / 15%);
+  font-size: 10pt;
+  font-weight: 500;
+  background-color: #fff;
+  width: 100%;
+  z-index: 100;
+  animation: headerSlideDown 0.95s ease forwards;
 }
 
 .header-search-bar {
-    background-color: white;
-    padding: 24px 10px;
-    width: 35%;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
+  background-color: #fff;
+  padding: 24px 10px;
+  flex-basis: 34%;
+  min-width: 340px;
+  text-align: center;
+
+  @include onMedium {
+    flex-grow: 1;
+  }
+
+  @include onSmall {
+    padding: 14px 10px;
+    min-width: unset;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-}
+    justify-content: center;
+    gap: 1rem;
+  }
 
-.search-bar-span {
-    text-align: center;
-}
-
-.header-search-bar-form {
-    padding: 0;
-    display: inline-block;
-    min-width: 48%;
-    position: relative;
-}
-
-.header-search-bar-form:hover {
-    transform: scale(1.02);
-}
-
-.search-input {
-    background: #f2f2f2;
-    padding: 0 15px 0 35px;
-    height: 35px;
-    color: #666;
-    outline: 0;
-    border: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
-}
-
-.search-icon {
-    top: 36%;
-    left: 0;
-    width: 35px;
-    height: 35px;
-    font-size: 10pt;
-    border: 0;
-    padding: 0;
-    position: absolute;
-    color: #323c41;
-}
-
-// might use later
-
-.header-category-button {
+  .header-category-button {
     background-color: #f2f2f2;
     min-width: 30%;
     max-width: 140px;
@@ -91,166 +115,168 @@
     color: #323c41;
     font-weight: bold;
     position: relative;
-}
+    cursor: pointer;
 
-.category-arrow {
+    @include onSmall {
+      border-radius: 16px;
+      padding: 12px 16px;
+      height: auto;
+      max-width: unset;
+      min-width: 110px;
+      width: 60%;
+    }
+
+    & .category-arrow {
+      position: absolute;
+      right: 0%;
+      top: 15%;
+
+      @include onSmall {
+        top: 20%;
+      }
+    }
+  }
+
+  & .header-search-bar-form {
+    padding: 0;
+    display: inline-block;
+    min-width: 48%;
+    position: relative;
+
+    @include onSmall {
+      width: 100%;
+    }
+  }
+
+  & .header-search-bar-form:hover {
+    transform: scale(1.02);
+  }
+
+  & .search-input {
+    background: #f2f2f2;
+    padding: 0 15px 0 35px;
+    height: 35px;
+    color: #666;
+    outline: 0;
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+
+    @include onSmall {
+      border-radius: 16px;
+      height: auto;
+      padding: 10px 16px 10px 35px;
+    }
+  }
+
+  & .search-icon {
+    top: 36%;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    font-size: 10pt;
+    border: 0;
+    padding: 0;
     position: absolute;
-    right: 0%;
-    top: 15%;
+    color: #323c41;
+  }
 }
 
 .header-category-button:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .menu-btn-item {
-    width: 200px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.category {
-    font-weight: bold
+  width: 200px;
 }
 
 .header-nav-menu {
-    display: flex;
-    width: 45%;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  @include onLarge {
+    gap: 1rem;
+  }
+
+  @include onMedium {
+    display: none;
+  }
 }
 
-/* right side of the header. navigation buttons */
-.nav-menu {
-    width: 100%;
-}
+.admin-header-nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
 
-button {
-    font-size: 16px;
+  @include onLarge {
+    gap: 1rem;
+  }
+
+  @include onMedium {
+    display: none;
+  }
 }
 
 .nav-menu-btn {
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    height: 100%;
-    padding: 0;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  height: 100%;
+  padding: 0;
+
+  @include onLarge {
+    font-size: 14px;
+  }
 }
 
 .logout {
-    background-color: #323c41;
-    color: #fff !important;
-    padding: 7px 15px;
-    border-radius: 18px;
-    height: auto;
-    margin-right: 2%;
+  background-color: #323c41;
+  color: #fff !important;
+  padding: 7px 15px;
+  border-radius: 18px;
+  height: auto;
+  margin-right: 2%;
+}
+
+.mobile-logout {
+  background-color: #323c41;
+  color: #fff !important;
+  height: auto;
 }
 
 .nav-menu-btn:hover {
-    color: #323c41;
-    border-bottom: 2px solid #323c41;
+  color: #323c41;
+  border-bottom: 2px solid #323c41;
 }
 
 .header-nav-menu-smaller-devices {
-    display: none;
-}
+  @include onMedium {
+    display: block;
+    flex-basis: 80px;
+    text-align: center;
+    align-self: center;
+  }
 
-@media only screen and (max-width: 1200px) {
-    button {
-        font-size: 14px;
+  & .menu-button {
+    padding: 0;
+    @include onSmall {
+      min-width: unset;
     }
+  }
 
-    .nav-menu-btn {
-        font-size: 14px;
-    }
+  @include onSmall {
+    flex-basis: 50px;
+  }
 
-    .title {
-        font-size: 28px;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .header-title {
-        width: 30%;
-    }
-
-    .header-search-bar {
-        width: 60%;
-    }
-
-    .nav-menu-btn {
-        font-size: 12px;
-    }
-
-    .responsive-menu {
-        display: none;
-    }
-
-    .header-nav-menu-smaller-devices {
-        display: flex;
-        width: 8%;
-        justify-content: flex-end;
-    }
-
-    .title {
-        font-size: 24px;
-    }
-
-    .logout {
-        background-color: #323c41;
-        color: #fff !important;
-        padding: 0 16px;
-    }
-}
-
-@media only screen and (max-width: 769px) {
-    .header-title {
-        width: 25%;
-    }
-
-    .header-search-bar {
-        width: 65%;
-    }
-
-    .header-nav-menu-smaller-devices {
-        width: 10%;
-    }
-
-    .title {
-        font-size: 20px;
-    }
-
-    button {
-        font-size: 12px;
-    }
-
-    .nav-menu-btn {
-        font-size: 12px;
-    }
-}
-
-@media only screen and (max-width: 485px) {
-    .header-title {
-        width: 20%;
-    }
-
-    .header-search-bar {
-        width: 45%;
-    }
-
-    .header-nav-menu-smaller-devices {
-        width: 30%;
-    }
-
-    button {
-        font-size: 10px;
-    }
-
-    .nav-menu-btn {
-        font-size: 10px;
-    }
-
-    .title {
-        font-size: 16px;
-    }
+  display: none;
 }

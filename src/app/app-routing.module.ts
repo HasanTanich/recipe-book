@@ -11,22 +11,42 @@ import { FilterRecipesResolver } from './core/recipes/resolvers/filter-recipes.r
 import { SearchRecipesResolver } from './core/recipes/resolvers/search-recipes.resolver';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
-
 const routes: Routes = [
-  { path: '', redirectTo: '/homepage', pathMatch: "full", },
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: 'homepage', component: DashboardComponent },
   { path: 'admin', canActivate: [AuthGuard], component: AdminComponent },
-  { path: 'recipes', component: RecipesComponent, resolve: { recipes: AllRecipesResolver } },
-  { path: 'recipes/cuisine/:cuisine', component: RecipesComponent, resolve: { filterRecipesByCuisine: FilterRecipesResolver } },
-  { path: 'recipes/mealType/:mealType', component: RecipesComponent, resolve: { filterRecipesByMealType: FilterRecipesResolver } },
-  { path: 'recipes/search/:key', component: RecipesComponent, resolve: { searchRecipes: SearchRecipesResolver } },
-  { path: 'recipe-details/:name', component: RecipeDetailsComponent, resolve: { recipe: RecipeDetailsResolver } },
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    resolve: { recipes: AllRecipesResolver },
+  },
+  {
+    path: 'recipes/cuisine/:cuisine',
+    component: RecipesComponent,
+    resolve: { filterRecipesByCuisine: FilterRecipesResolver },
+  },
+  {
+    path: 'recipes/mealType/:mealType',
+    component: RecipesComponent,
+    resolve: { filterRecipesByMealType: FilterRecipesResolver },
+  },
+  {
+    path: 'recipes/search/:key',
+    component: RecipesComponent,
+    resolve: { searchRecipes: SearchRecipesResolver },
+  },
+  {
+    path: 'recipe-details/:name',
+    component: RecipeDetailsComponent,
+    resolve: { recipe: RecipeDetailsResolver },
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,105 +1,103 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-    // background-image: url('../../../assets/images/background-food.jpg');
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    background-color: rgb(187, 234, 250);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: rgb(187, 234, 250);
 }
 
 .contact-box {
-    width: 650px;
-    height: 700px;
-    border-radius: 6px;
+  width: 650px;
+  height: 700px;
+  border-radius: 6px;
 }
 
 .box-title {
-    padding-top: 4%;
+  padding-top: 4%;
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    padding: 0 7% 7% 7%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 7% 7% 7%;
 }
 
 .contact-form label {
-    padding: 4% 0;
+  padding: 4% 0;
 }
 
 .contact-form input {
-    width: 100%;
-    padding: 1.5%;
-    font-size: 16px;
-    line-height: 20px;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-    box-shadow: transparent;
+  width: 100%;
+  padding: 1.5%;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-shadow: transparent;
 }
 
 .message-input {
-    box-shadow: 30px 20px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid lightgray;
-    border-radius: 16px;
-    color: black;
-    padding: 5%;
+  box-shadow: 30px 20px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid lightgray;
+  border-radius: 16px;
+  color: black;
+  padding: 5%;
 }
 
 .submit-btn {
-    margin-top: 7%;
-    user-select: none;
-    border-radius: 6px;
+  margin-top: 7%;
+  user-select: none;
+  border-radius: 6px;
 }
 
 .admin {
-    display: none;
+  display: none;
 }
 
 .messages-list {
-    margin-top: 5%;
-    padding: 8%;
+  margin-top: 5%;
+  padding: 8%;
 }
 
 .admin-messages-title {
-    margin-bottom: 2%;
+  margin-bottom: 2%;
 }
 
 .mat-error {
-    margin-top: 1%;
-    font-size: 12px;
+  font-weight: bold;
+  margin-top: 1%;
+  font-size: 12px;
 }
 
 .mat-selection-list .mat-list-option .delete-btn {
-    position: absolute;
-    right: 0;
-    font-size: 22px;
+  position: absolute;
+  right: -2rem;
+  font-size: 22px;
 }
 
 @media only screen and (max-width: 1200px) {
-    .messages-list {
-        margin-top: 10%;
-    }
+  .messages-list {
+    margin-top: 10%;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-    .messages-list {
-        margin-top: 12%;
-    }
+  .messages-list {
+    margin-top: 12%;
+  }
 }
 
 @media only screen and (max-width: 769px) {
-    .messages-list {
-        margin-top: 15%;
-    }
+  .messages-list {
+    margin-top: 15%;
+  }
 }
 
 @media only screen and (max-width: 485px) {
-    .messages-list {
-        margin-top: 20%;
-    }
+  .messages-list {
+    margin-top: 20%;
+  }
 }

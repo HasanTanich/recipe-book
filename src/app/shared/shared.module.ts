@@ -1,25 +1,24 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { RouterModule } from '@angular/router';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
-import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { HeaderComponent } from './header/header.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { OrderByNumber } from './pipes/order-by.pipe';
-import { orderByText } from './pipes/order-by.pipe';
+import { OrderByNumber, orderByText } from './pipes/order-by.pipe';
+import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
 import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filters-tab.component';
 
 @NgModule({
@@ -31,7 +30,7 @@ import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filter
     FilterPipe,
     OrderByNumber,
     orderByText,
-    RecipesFiltersTabComponent
+    RecipesFiltersTabComponent,
   ],
   imports: [
     CommonModule,
@@ -67,7 +66,7 @@ import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filter
     FilterPipe,
     OrderByNumber,
     orderByText,
-    RecipesFiltersTabComponent
+    RecipesFiltersTabComponent,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

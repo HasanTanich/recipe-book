@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ContactUs } from 'src/app/core/models/contactus.model';
+import { ContactUs } from 'src/app/core/models/ContactUs.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { DataService } from 'src/app/core/services/data.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
-
 
 @Component({
   selector: 'app-contact',
@@ -16,7 +15,7 @@ import { UserMessagesDialogComponent } from './user-messages-dialog/user-message
 
 export class ContactComponent implements OnInit {
 
-  isAdmin: boolean; // Logged in or not 
+  isAdmin: boolean; // Logged in or not
   data; // data fetched from database
   users;
 

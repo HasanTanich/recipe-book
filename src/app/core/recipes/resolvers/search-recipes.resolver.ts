@@ -4,18 +4,19 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { Recipe } from '../../models/recipe.model';
+import { Recipe } from '../../models/Recipe.model';
 import { DataService } from '../../services/data.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class SearchRecipesResolver implements Resolve<Recipe[]> {
-  constructor(private dataService: DataService) {
-  }
+  constructor(private dataService: DataService) {}
 
-  async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Recipe[]> {
+  async resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Promise<Recipe[]> {
     let data = this.dataService.getData('recipes');
 
     let filteredRecipes = [];
@@ -23,13 +24,13 @@ export class SearchRecipesResolver implements Resolve<Recipe[]> {
 
     searchInput = route.queryParams['key'];
 
-    await data.then(recipes => {
-      recipes.map(recipe => {
+    await data.then((recipes) => {
+      recipes.map((recipe) => {
         filteredRecipes.push(recipe);
       });
     });
 
-    filteredRecipes = filteredRecipes.filter(recipe => {
+    filteredRecipes = filteredRecipes.filter((recipe) => {
       return recipe.name.toLowerCase().includes(searchInput.toLowerCase());
     });
 

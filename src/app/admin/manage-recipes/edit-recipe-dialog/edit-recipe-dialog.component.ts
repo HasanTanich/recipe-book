@@ -1,17 +1,16 @@
 import { ENTER } from '@angular/cdk/keycodes';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Recipe } from 'src/app/core/models/recipe.model';
+import { Recipe } from 'src/app/core/models/Recipe.model';
 
 @Component({
   selector: 'app-edit-recipe-dialog',
   templateUrl: './edit-recipe-dialog.component.html',
-  styleUrls: ['./edit-recipe-dialog.component.scss']
+  styleUrls: ['./edit-recipe-dialog.component.scss'],
 })
 export class EditRecipeDialogComponent implements OnInit {
-
   editRecipeForm: FormGroup;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER] as const;
@@ -19,9 +18,10 @@ export class EditRecipeDialogComponent implements OnInit {
   ingredients: any[] = [];
   tags: any[] = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Recipe,
-    public dialogRef: MatDialogRef<EditRecipeDialogComponent>) {
-  }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: Recipe,
+    public dialogRef: MatDialogRef<EditRecipeDialogComponent>
+  ) {}
 
   ngOnInit(): void {
     this.editRecipeForm = new FormGroup({
@@ -30,7 +30,9 @@ export class EditRecipeDialogComponent implements OnInit {
       image: new FormControl(this.data.image, [Validators.required]),
       ingredients: new FormControl(''),
       tags: new FormControl(''),
-      cookingTime: new FormControl(this.data.cookingTime, [Validators.required]),
+      cookingTime: new FormControl(this.data.cookingTime, [
+        Validators.required,
+      ]),
       cuisine: new FormControl(this.data.cuisine, [Validators.required]),
       id: new FormControl(this.data.id),
     });
@@ -79,5 +81,4 @@ export class EditRecipeDialogComponent implements OnInit {
       this.tags.splice(index, 1);
     }
   }
-
 }

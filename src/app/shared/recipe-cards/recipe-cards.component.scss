@@ -1,20 +1,19 @@
 .recipes-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
 }
 
 .recipes-description {
-    font-weight: 500;
-    padding-bottom: 20px;
+  font-weight: 500;
+  padding-bottom: 20px;
 }
 
 .recipes-cards {
-    height: 55%;
+  height: 190px;
 }
 
-:host ::ng-deep.ng-image-slider .ng-image-slider-container .main .main-inner .img-div img {
-    object-fit: cover;
-    cursor: pointer;
+.view-all-link:hover {
+  text-decoration: underline;
 }

@@ -14,16 +14,6 @@
         {{'Search results for: ' + searchResults}}
     </h1>
 
-    <!-- <div class="filters-tab">
-        <button mat-stroked-button class="fitler-btn"
-            [ngStyle]="{'background-color': cookingTimeFilter ? '#ffdf36' : 'transparent'}"
-            (click)="cookingTimeActive()">cooking time</button>
-        <button mat-stroked-button [ngStyle]="{'background-color': nameFilter ? '#ffdf36' : 'transparent'}"
-            class="fitler-btn" (click)="nameActive()">name</button>
-        <button mat-stroked-button [ngStyle]="{'background-color': cuisineFilter ? '#ffdf36' : 'transparent'}"
-            class="fitler-btn" (click)="cuisineActive()">cuisine</button>
-    </div> -->
-
     <app-recipes-filters-tab (cookingTime)="cookingTimeToggle($event)" (name)="nameToggle($event)"
         (cuisine)="cuisineToggle($event)" [cuisineRecipes]="cuisine">
     </app-recipes-filters-tab>

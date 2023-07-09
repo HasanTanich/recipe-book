@@ -5,19 +5,18 @@ import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit {
   recipes;
   cuisine;
-  searchResults;
+  searchResults: string = '';
 
-  cookingTimeFilter: boolean = false;
-  nameFilter: boolean = false;
-  cuisineFilter: boolean = false;
+  cookingTimeFilter = false;
+  nameFilter = false;
+  cuisineFilter = false;
 
-  constructor(public dataService: DataService, private route: ActivatedRoute) {
-  }
+  constructor(public dataService: DataService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.data.subscribe((data: Data) => {
@@ -26,12 +25,10 @@ export class RecipesComponent implements OnInit {
       } else if (data['filterRecipesByCuisine']) {
         this.recipes = data['filterRecipesByCuisine'];
         this.cuisine = this.route.snapshot.params['cuisine'];
-      }
-      else if (data['searchRecipes']) {
+      } else if (data['searchRecipes']) {
         this.recipes = data['searchRecipes'];
         this.searchResults = this.route.snapshot.params['key'];
-      }
-      else if (data['filterRecipesByMealType']) {
+      } else if (data['filterRecipesByMealType']) {
         this.recipes = data['filterRecipesByMealType'];
         this.searchResults = this.route.snapshot.params['mealType'];
       }
@@ -49,5 +46,4 @@ export class RecipesComponent implements OnInit {
   cuisineToggle(toggle: boolean) {
     this.cuisineFilter = toggle;
   }
-
 }

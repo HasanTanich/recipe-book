@@ -1,114 +1,114 @@
 .container {
-    padding: 10%;
+  padding: 10%;
 }
 
 .title-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-bar {
-    width: 35%;
+  width: 35%;
 }
 
 .search-form {
-    width: 100%;
+  width: 100%;
 }
 
 .recipes-list-box {
-    margin-top: 2%;
-    width: 100%;
+  margin-top: 2%;
+  width: 100%;
 }
 
 .mat-list-base .mat-list-item {
-    height: 350px;
-    border-radius: 16px;
-    background-color: #ebece9;
-    margin-top: 2%;
+  height: 350px;
+  border-radius: 16px;
+  background-color: #ebece9;
+  margin-top: 2%;
 }
 
 .mat-list-item-content {
-    padding: 0;
+  padding: 0;
 }
 
 :host ::ng-deep.mat-list-base .mat-list-item .mat-list-item-content {
-    padding: 0;
+  padding: 0;
 }
 
 .filter-recipes-form {
-    width: 40%;
+  width: 40%;
 }
 
 .filter-recipes-full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .search-input {
-    background: #f2f2f2;
-    padding: 0 15px 0 35px;
-    height: 35px;
-    color: #666;
-    outline: 0;
-    border: 0;
-    -webkit-appearance: none;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 18px;
+  background: #f2f2f2;
+  padding: 0 15px 0 35px;
+  height: 35px;
+  color: #666;
+  outline: 0;
+  border: 0;
+  -webkit-appearance: none;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 18px;
 }
 
 .mat-option {
-    height: 40px;
+  height: 40px;
 }
 
 .show-more {
-    margin-top: 9%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .show-more-button {
-    width: 40%;
-    height: 40px;
+  width: 40%;
+  height: 40px;
 }
 
 @media only screen and (max-width: 1200px) {
-    .container {
-        padding: 15% 8% 8% 8%;
-    }
+  .container {
+    padding: 15% 8% 8% 8%;
+  }
 
-    .title-box h1 {
-        font-size: 28px;
-    }
+  .title-box h1 {
+    font-size: 28px;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-    .container {
-        padding: 20% 7% 7% 7%;
-    }
+  .container {
+    padding: 20% 7% 7% 7%;
+  }
 
-    .title-box h1 {
-        font-size: 24px;
-    }
+  .title-box h1 {
+    font-size: 24px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
-    .container {
-        padding: 25% 6% 6% 6%;
-    }
+  .container {
+    padding: 25% 6% 6% 6%;
+  }
 
-    .title-box h1 {
-        font-size: 22px;
-    }
+  .title-box h1 {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (max-width: 485px) {
-    .container {
-        padding: 30% 5% 5% 5%;
-    }
+  .container {
+    padding: 30% 5% 5% 5%;
+  }
 
-    .title-box h1 {
-        font-size: 18px;
-    }
+  .title-box h1 {
+    font-size: 18px;
+  }
 }

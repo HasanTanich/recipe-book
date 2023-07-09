@@ -1,168 +1,84 @@
-.header {
-    display: flex;
-    box-shadow: 0 0 6px rgb(0 0 0 / 15%);
-    font-size: 10pt;
-    font-weight: 500;
-    background-color: #fff;
-    position: fixed;
-    z-index: 1030;
-    top: 0;
-    width: 100%;
-}
-
-.header-title {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title {
-    font-size: 32px;
-}
-
-.header-search-bar {
-    background-color: white;
-    padding: 24px 10px;
-    width: 50%;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.search-bar-span {
-    text-align: center;
-}
-
-.header-search-bar-form {
-    padding: 0;
-    display: inline-block;
-    min-width: 48%;
-    position: relative;
-}
-
-.header-search-bar-form:hover {
-    transform: scale(1.02);
-}
-
-.search-input {
-    background: #f2f2f2;
-    padding: 0 15px 0 35px;
-    height: 35px;
-    color: #666;
-    outline: 0;
-    border: 0;
-    -webkit-appearance: none;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
-}
-
-.search-icon {
-    background-color: transparent;
-    background-size: 19px 19px;
-    background-position: center center;
-    top: 0;
-    left: 0;
-    width: 35px;
-    height: 35px;
-    font-size: 10pt;
-    border: 0;
-    padding: 0;
-    position: absolute;
-    color: #323c41;
-}
-
-.fa-search:before {
-    content: "\f002";
-    /* content: url("/icons/search-icons-283914.png") */
-}
-
 .container {
-    padding: 6% 5% 5% 5%;
-    margin-top: 6%;
-    /* will delete later :) */
-    padding-bottom: 20%;
-}
+  padding: 6% 5% 5% 5%;
+  margin-top: 6rem;
+  padding-bottom: 4rem;
 
-.home-cover-img {
+  & .home-cover-img {
     width: 75%;
     height: 500px;
     margin: auto;
-}
+  }
 
-.cover-img {
-    box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 20%);
-    border-radius: 20px;
-    color: #cccccc;
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-:host ::ng-deep.ng-image-slider {
-    height: 100% !important;
-}
-
-:host ::ng-deep.ng-image-slider .ng-image-slider-container .main {
-    height: 100% !important;
-}
-
-:host ::ng-deep.ng-image-slider .ng-image-slider-container .main .main-inner .img-div img {
-    border-radius: 16px;
-    object-fit: cover;
-}
-
-.top-category {
+  & .top-category {
     width: 75%;
     height: 200px;
     margin: auto;
     margin-top: 3%;
-}
+  }
 
-.top-category-item {
-    width: 200px;
-    height: 200px;
-    border-radius: 16px;
-}
-
-.top-category-item-img {
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-}
-
-/* swipe recipes section */
-.swipe-recipes {
+  & .swipe-recipes {
     width: 75%;
     margin: auto;
+  }
+
+  & .recipes-row {
+    height: 360px;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
 }
 
-.recipes-row {
-    height: 400px;
-    margin-top: 7%;
+::ng-deep.ng-image-slider {
+  height: 100% !important;
+
+  & .ng-image-slider-container .main {
+    height: 100% !important;
+
+    & .icons {
+      transition: 50ms;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    & .next.disable,
+    .prev.disable {
+      transform: none;
+    }
+  }
+
+  & .main-inner .img-div img {
+    border-radius: 16px;
+    object-fit: cover;
+    transition: 100ms;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 @media only screen and (max-width: 1200px) {
-    .container {
-        padding: 10% 0 0 0;
-    }
+  .container {
+    padding: 10% 0 0 0;
+  }
 }
 
-@media only screen and (max-width: 1024px) {}
+// @media only screen and (max-width: 1024px) {
+// }
 
 @media only screen and (max-width: 769px) {
-    .container {
-        padding: 20% 0 0 0;
-    }
+  .container {
+    padding: 20% 0 0 0;
+  }
 }
 
 @media only screen and (max-width: 485px) {
-    .container {
-        padding: 25% 0 0 0;
-    }
+  .container {
+    padding: 25% 0 0 0;
+  }
 }

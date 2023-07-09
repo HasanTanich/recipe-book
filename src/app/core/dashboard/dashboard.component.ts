@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Image } from '../models/imageslider.model';
-import { Recipe } from '../models/recipe.model';
+import { Image } from '../models/ImagesSlider.model';
+import { Recipe } from '../models/Recipe.model';
 import { DataService } from '../services/data.service';
 import { RecipesDataService } from '../services/recipes-data.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
-
 export class DashboardComponent implements OnInit {
-
   imagesGallery: Image[] = [];
   ItalianRecipes: Promise<Recipe[]>;
   ChineseRecipes: Promise<Recipe[]>;
@@ -21,7 +19,10 @@ export class DashboardComponent implements OnInit {
   AmericanRecipes: Promise<Recipe[]>;
   MoroccanRecipes: Promise<Recipe[]>;
 
-  constructor(public dataService: DataService, public recipeData: RecipesDataService) { }
+  constructor(
+    public dataService: DataService,
+    public recipeData: RecipesDataService
+  ) {}
 
   ngOnInit(): void {
     this.ItalianRecipes = this.recipeData.getRecipesFromCuisine('Italian');
@@ -33,16 +34,15 @@ export class DashboardComponent implements OnInit {
     this.MoroccanRecipes = this.recipeData.getRecipesFromCuisine('Moroccan');
 
     this.dataService.getData('recipes').then((data) => {
-      data.map(d => {
+      data.map((d) => {
         let temp = {
           image: d.image,
           thumbImage: d.image,
           title: d.name,
-          alt: d.name
-        }
+          alt: d.name,
+        };
         this.imagesGallery.push(temp);
       });
     });
   }
-
 }

@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Data } from '@angular/router';
-import { Review } from '../../models/review.model';
+import { Review } from '../../models/Review.model';
 import { RecipesDataService } from '../../services/recipes-data.service';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.scss']
+  styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
-
   recipe;
   reviews = [];
 
@@ -19,10 +18,11 @@ export class RecipeDetailsComponent implements OnInit {
     comment: new FormControl('', Validators.required),
   });
 
-  constructor(private route: ActivatedRoute, private recipeDataService: RecipesDataService) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private recipeDataService: RecipesDataService
+  ) {}
   ngOnInit(): void {
-
     this.route.data.subscribe((data: Data) => {
       this.recipe = data['recipe'];
     });

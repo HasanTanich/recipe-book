@@ -1,14 +1,17 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    min-height: 100vh;
-    background-color: #1a283d;
+  position: absolute;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  background-color: #1a283d;
 }
 
 .text {
-    color: white;
-    padding: 2.5%;
+  color: white;
+  padding: 2.5%;
 }

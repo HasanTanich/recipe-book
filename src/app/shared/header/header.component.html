@@ -1,86 +1,80 @@
-<div class="header">
+<div [ngClass]="{'sticky-header': isScrolled}" class="header">
+  <div class="header-title">
+    <h1 class="title" routerLink="/">Recipe Book</h1>
+    <img src="../../../assets/logo.png" alt="Logo" class="logo" routerLink="/">
+  </div>
 
-    <div class="header-title">
-        <h1 class="title" routerLink="/">Recipe Book</h1>
-    </div>
+  <div class="header-search-bar">
+    <button class="header-category-button" [matMenuTriggerFor]="categoryMenu">
+      Category
+      <mat-icon class="category-arrow">arrow_drop_down</mat-icon>
+    </button>
+    <form class="header-search-bar-form">
+      <input type="text" placeholder="Search for recipes" aria-label="Number" [formControl]="searchInput"
+        class="search-input" [matAutocomplete]="auto" />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let searchInput of filteredSearchOptions | async" [value]="searchInput"
+          (click)="recipeSelected(searchInput)">
+          {{ searchInput }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-icon class="search-icon">search</mat-icon>
+      <button type="submit" (click)="recipeSelected(searchInput.value)" style="display: none"></button>
+    </form>
+  </div>
 
-    <div class="header-search-bar">
-        <div class="search-bar-span">
-            <button class="header-category-button" [matMenuTriggerFor]="categoryMenu">Category
-                <mat-icon class="category-arrow">arrow_drop_down</mat-icon>
-            </button>
-            <mat-menu #categoryMenu="matMenu" class="category-name-menu">
-                <button mat-menu-item [matMenuTriggerFor]="mealTypeMenu" class="menu-btn-item category">Meal
-                    Type</button>
-                <button mat-menu-item [matMenuTriggerFor]="cuisineMenu" class="category">Popular Cuisines</button>
-                <!-- <button mat-menu-item [matMenuTriggerFor]="drinksMenu">Drinks</button> -->
-            </mat-menu>
+  <mat-menu #categoryMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="mealTypeMenu" class="menu-btn-item bold-text">
+      Meal Type
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="cuisineMenu" class="bold-text">
+      Popular Cuisines
+    </button>
+  </mat-menu>
 
-            <mat-menu #mealTypeMenu="matMenu">
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Dinner']"
-                    class="menu-btn-item">Dinner</button>
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Breakfast']">Breakfast</button>
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Lunch']">Lunch</button>
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Fast food']">Fast Food</button>
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Appetizer']">Appetizer</button>
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Side Dish']">Side Dish</button>
-                <button mat-menu-item [routerLink]="['/recipes/mealType', 'Family Dinner']">Family Dinner</button>
-            </mat-menu>
+  <mat-menu #mealTypeMenu="matMenu">
+    <button mat-menu-item *ngFor="let mealType of MealTypeMenuList" [routerLink]="['/recipes/mealType', mealType]"
+      class="menu-btn-item">
+      {{mealType}}
+    </button>
+  </mat-menu>
 
-            <mat-menu #cuisineMenu="matMenu">
-                <button mat-menu-item class="menu-btn-item"
-                    [routerLink]="['/recipes/cuisine', 'Italian']">Italian</button>
-                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'British']">British</button>
-                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'French']">French</button>
-                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'Chinese']">Chinese</button>
-                <button mat-menu-item [routerLink]="['/recipes/cuisine', 'Japanese']">Japanese</button>
-            </mat-menu>
+  <mat-menu #cuisineMenu="matMenu">
+    <button mat-menu-item *ngFor="let cuisine of CuisineMenuList" class="menu-btn-item"
+      [routerLink]="['/recipes/cuisine', cuisine]">
+      {{cuisine}}
+    </button>
+  </mat-menu>
 
-            <!-- <mat-menu #drinksMenu="matMenu">
-                <button mat-menu-item class="menu-btn-item">Smoothie</button>
-                <button mat-menu-item>Tea</button>
-                <button mat-menu-item>Coffee</button>
-            </mat-menu> -->
+  <div class="header-nav-menu" [ngClass]="{'admin-header-nav-menu': loggedIn}">
+    <button class="nav-menu-btn" [routerLink]="'/contact-us'">
+      Contact-Us
+    </button>
+    <button routerLink="/manage-recipes" class="nav-menu-btn" [ngStyle]="{ display: loggedIn ? '' : 'none' }">
+      Manage Recipes
+    </button>
+    <button [routerLink]="['/recipes']" class="nav-menu-btn">Recipes</button>
+    <button class="nav-menu-btn logout" [ngStyle]="{ display: loggedIn ? '' : 'none' }" (click)="logout()">
+      Logout
+    </button>
+  </div>
 
-            <form class="header-search-bar-form">
-                <input type="text" placeholder="Search for recipes" aria-label="Number" [formControl]="searchInput"
-                    class="search-input" [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                    <mat-option *ngFor="let searchInput of filteredSearchOptions | async" [value]="searchInput"
-                        (click)="recipeSelected(searchInput)">
-                        {{searchInput}}
-                    </mat-option>
-                </mat-autocomplete>
-                <mat-icon class="search-icon">search</mat-icon>
-                <button type="submit" (click)="recipeSelected(searchInput.value)" style="display: none;">
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <div class="header-nav-menu responsive-menu"
-        [ngStyle]="{'justify-content' : loggedIn == false ? 'space-around' : ''}">
-        <button class="nav-menu-btn" [routerLink]="'/contact-us'">Contact-Us</button>
-        <button routerLink="/manage-recipes" class="nav-menu-btn" [ngStyle]="{'display': loggedIn ? '' : 'none'}">Manage
-            Recipes</button>
-        <button [routerLink]="['/recipes']" class="nav-menu-btn">Recipes</button>
-        <button class="nav-menu-btn logout" [ngStyle]="{'display': loggedIn ? '' : 'none'}"
-            (click)="logout()">Logout</button>
-    </div>
-
-    <!-- for devices with width 769px and smaller-->
-    <div class="header-nav-menu-smaller-devices">
-        <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item [routerLink]="'/contact-us'">Contact-Us</button>
-            <button mat-menu-item routerLink="/manage-recipes" [ngStyle]="{'display': loggedIn ? '' : 'none'}">Manage
-                Recipes</button>
-            <button mat-menu-item [routerLink]="['/recipes']">Recipes</button>
-            <button mat-menu-item class="logout" [ngStyle]="{'display': loggedIn ? '' : 'none'}"
-                (click)="logout()">Logout</button>
-        </mat-menu>
-    </div>
-
+  <!-- for devices with width 769px and smaller-->
+  <div class="header-nav-menu-smaller-devices">
+    <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="'/contact-us'" class="menu-btn-item">Contact-Us</button>
+      <button mat-menu-item class="menu-btn-item" routerLink="/manage-recipes"
+        [ngStyle]="{ display: loggedIn ? '' : 'none' }">
+        Manage Recipes
+      </button>
+      <button mat-menu-item class="menu-btn-item" [routerLink]="['/recipes']">Recipes</button>
+      <button mat-menu-item class="menu-btn-item mobile-logout" [ngStyle]="{ display: loggedIn ? '' : 'none' }"
+        (click)="logout()">
+        Logout
+      </button>
+    </mat-menu>
+  </div>
 </div>
