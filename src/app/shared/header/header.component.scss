@@ -117,6 +117,10 @@
     position: relative;
     cursor: pointer;
 
+    &:hover {
+      transform: scale(1.02);
+    }
+
     @include onSmall {
       border-radius: 16px;
       padding: 12px 16px;
@@ -146,10 +150,10 @@
     @include onSmall {
       width: 100%;
     }
-  }
 
-  & .header-search-bar-form:hover {
-    transform: scale(1.02);
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 
   & .search-input {
@@ -184,10 +188,6 @@
     position: absolute;
     color: #323c41;
   }
-}
-
-.header-category-button:hover {
-  transform: scale(1.02);
 }
 
 .menu-btn-item {

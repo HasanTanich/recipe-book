@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+/docs
 /tmp
 /out-tsc
 /bazel-out
@@ -20,6 +21,7 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 project-build-command.txt
+.editorconfig
 
 # Visual Studio Code
 .vscode/*
@@ -48,4 +50,5 @@ Thumbs.db
 .runtimeconfig.json
 
 # environment
+.env
 /src/environments

@@ -1,4 +1,3 @@
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -25,7 +24,7 @@ import { SharedModule } from './shared/shared.module';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
