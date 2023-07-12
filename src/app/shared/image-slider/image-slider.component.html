@@ -1,0 +1,51 @@
+<div class="slider-box" *ngIf="!isLoading">
+  <div
+    class="images-box"
+    [ngClass]="{ 'cover-img-box': coverImage }"
+    [style]="activeIndexStyling"
+  >
+    <!-- (imageClick)="goToRecipe($event)" -->
+    <div
+      class="image-box"
+      [ngClass]="{
+        'top-category': topCategory,
+        'home-cover-img': coverImage,
+        'instant-transition': this.infinite && activeIndex === this.maxIndex
+      }"
+      *ngFor="let image of images"
+      [style.height]="height"
+      [routerLink]="['/recipe-details', image.title]"
+    >
+      <img [src]="image.path" [alt]="image.title" />
+      <div class="image-title-box">
+        <p class="image-title">
+          {{ image.title }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="prev"
+    type="button"
+    [disabled]="activeIndex === 0"
+    (click)="updateIndex(activeIndex - 1)"
+    *ngIf="!infinite && images.length > 4"
+  >
+    <mat-icon class2="prev-icon">keyboard_arrow_left</mat-icon>
+  </button>
+
+  <button
+    class="next"
+    type="button"
+    (click)="updateIndex(activeIndex + 1)"
+    [disabled]="activeIndex === maxIndex"
+    *ngIf="!infinite && images.length > 4"
+  >
+    <mat-icon class="next-icon">keyboard_arrow_right</mat-icon>
+  </button>
+</div>
+
+<div class="loading" *ngIf="isLoading">
+  <mat-spinner diameter="42"></mat-spinner>
+</div>

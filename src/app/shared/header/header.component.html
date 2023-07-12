@@ -1,7 +1,12 @@
-<div [ngClass]="{'sticky-header': isScrolled}" class="header">
+<div [ngClass]="{ 'sticky-header': isScrolled }" class="header">
   <div class="header-title">
     <h1 class="title" routerLink="/">Recipe Book</h1>
-    <img src="../../../assets/logo.png" alt="Logo" class="logo" routerLink="/">
+    <img
+      src="../../../assets/logo.png"
+      alt="Logo"
+      class="logo"
+      routerLink="/"
+    />
   </div>
 
   <div class="header-search-bar">
@@ -10,21 +15,38 @@
       <mat-icon class="category-arrow">arrow_drop_down</mat-icon>
     </button>
     <form class="header-search-bar-form">
-      <input type="text" placeholder="Search for recipes" aria-label="Number" [formControl]="searchInput"
-        class="search-input" [matAutocomplete]="auto" />
+      <input
+        type="text"
+        placeholder="Search for recipes"
+        aria-label="Number"
+        [formControl]="searchInput"
+        class="search-input"
+        [matAutocomplete]="auto"
+      />
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let searchInput of filteredSearchOptions | async" [value]="searchInput"
-          (click)="recipeSelected(searchInput)">
+        <mat-option
+          *ngFor="let searchInput of filteredSearchOptions | async"
+          [value]="searchInput"
+          (click)="recipeSelected(searchInput)"
+        >
           {{ searchInput }}
         </mat-option>
       </mat-autocomplete>
       <mat-icon class="search-icon">search</mat-icon>
-      <button type="submit" (click)="recipeSelected(searchInput.value)" style="display: none"></button>
+      <button
+        type="submit"
+        (click)="recipeSelected(searchInput.value)"
+        style="display: none"
+      ></button>
     </form>
   </div>
 
   <mat-menu #categoryMenu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="mealTypeMenu" class="menu-btn-item bold-text">
+    <button
+      mat-menu-item
+      [matMenuTriggerFor]="mealTypeMenu"
+      class="menu-btn-item bold-text"
+    >
       Meal Type
     </button>
     <button mat-menu-item [matMenuTriggerFor]="cuisineMenu" class="bold-text">
@@ -33,28 +55,47 @@
   </mat-menu>
 
   <mat-menu #mealTypeMenu="matMenu">
-    <button mat-menu-item *ngFor="let mealType of MealTypeMenuList" [routerLink]="['/recipes/mealType', mealType]"
-      class="menu-btn-item">
-      {{mealType}}
+    <button
+      mat-menu-item
+      *ngFor="let mealType of MealTypeMenuList"
+      [routerLink]="['/recipes/mealType', mealType]"
+      class="menu-btn-item"
+    >
+      {{ mealType }}
     </button>
   </mat-menu>
 
   <mat-menu #cuisineMenu="matMenu">
-    <button mat-menu-item *ngFor="let cuisine of CuisineMenuList" class="menu-btn-item"
-      [routerLink]="['/recipes/cuisine', cuisine]">
-      {{cuisine}}
+    <button
+      mat-menu-item
+      *ngFor="let cuisine of CuisineMenuList"
+      class="menu-btn-item"
+      [routerLink]="['/recipes/cuisine', cuisine]"
+    >
+      {{ cuisine }}
     </button>
   </mat-menu>
 
-  <div class="header-nav-menu" [ngClass]="{'admin-header-nav-menu': loggedIn}">
+  <div
+    class="header-nav-menu"
+    [ngClass]="{ 'admin-header-nav-menu': loggedIn }"
+  >
     <button class="nav-menu-btn" [routerLink]="'/contact-us'">
       Contact-Us
     </button>
-    <button routerLink="/manage-recipes" class="nav-menu-btn" [ngStyle]="{ display: loggedIn ? '' : 'none' }">
+    <button
+      routerLink="/manage-recipes"
+      class="nav-menu-btn"
+      [ngStyle]="{ display: loggedIn ? '' : 'none' }"
+    >
       Manage Recipes
     </button>
     <button [routerLink]="['/recipes']" class="nav-menu-btn">Recipes</button>
-    <button class="nav-menu-btn logout" [ngStyle]="{ display: loggedIn ? '' : 'none' }" (click)="logout()">
+    <button
+      class="nav-menu-btn logout"
+      [ngStyle]="{ display: loggedIn ? '' : 'none' }"
+      (click)="logout()"
+    >
       Logout
     </button>
   </div>
@@ -65,14 +106,26 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="'/contact-us'" class="menu-btn-item">Contact-Us</button>
-      <button mat-menu-item class="menu-btn-item" routerLink="/manage-recipes"
-        [ngStyle]="{ display: loggedIn ? '' : 'none' }">
+      <button mat-menu-item [routerLink]="'/contact-us'" class="menu-btn-item">
+        Contact-Us
+      </button>
+      <button
+        mat-menu-item
+        class="menu-btn-item"
+        routerLink="/manage-recipes"
+        [ngStyle]="{ display: loggedIn ? '' : 'none' }"
+      >
         Manage Recipes
       </button>
-      <button mat-menu-item class="menu-btn-item" [routerLink]="['/recipes']">Recipes</button>
-      <button mat-menu-item class="menu-btn-item mobile-logout" [ngStyle]="{ display: loggedIn ? '' : 'none' }"
-        (click)="logout()">
+      <button mat-menu-item class="menu-btn-item" [routerLink]="['/recipes']">
+        Recipes
+      </button>
+      <button
+        mat-menu-item
+        class="menu-btn-item mobile-logout"
+        [ngStyle]="{ display: loggedIn ? '' : 'none' }"
+        (click)="logout()"
+      >
         Logout
       </button>
     </mat-menu>
