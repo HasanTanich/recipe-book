@@ -24,7 +24,7 @@
   transition: 200ms;
   padding-left: 1rem;
 
-  @include onSmall {
+  @include onXSmall {
     padding: 0;
     gap: unset;
   }
@@ -79,6 +79,11 @@
   width: 100%;
   z-index: 100;
   animation: headerSlideDown 0.95s ease forwards;
+
+  @include onXSmall {
+    gap: unset;
+    padding: unset;
+  }
 }
 
 .header-search-bar {
@@ -92,7 +97,7 @@
     flex-grow: 1;
   }
 
-  @include onSmall {
+  @include onXSmall {
     padding: 14px 10px;
     min-width: unset;
     display: flex;
@@ -121,7 +126,7 @@
       transform: scale(1.02);
     }
 
-    @include onSmall {
+    @include onXSmall {
       border-radius: 16px;
       padding: 12px 16px;
       height: auto;
@@ -135,7 +140,7 @@
       right: 0%;
       top: 15%;
 
-      @include onSmall {
+      @include onXSmall {
         top: 20%;
       }
     }
@@ -147,7 +152,7 @@
     min-width: 48%;
     position: relative;
 
-    @include onSmall {
+    @include onXSmall {
       width: 100%;
     }
 
@@ -170,7 +175,7 @@
     border-top-right-radius: 18px;
     border-bottom-right-radius: 18px;
 
-    @include onSmall {
+    @include onXSmall {
       border-radius: 16px;
       height: auto;
       padding: 10px 16px 10px 35px;
@@ -269,12 +274,12 @@
 
   & .menu-button {
     padding: 0;
-    @include onSmall {
+    @include onXSmall {
       min-width: unset;
     }
   }
 
-  @include onSmall {
+  @include onXSmall {
     flex-basis: 50px;
   }
 

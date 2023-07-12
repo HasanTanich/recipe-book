@@ -20,6 +20,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { OrderByNumber, orderByText } from './pipes/order-by.pipe';
 import { RecipeCardsComponent } from './recipe-cards/recipe-cards.component';
 import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filters-tab.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filter
     OrderByNumber,
     orderByText,
     RecipesFiltersTabComponent,
+    ImageSliderComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +48,7 @@ import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filter
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     FormsModule,
@@ -67,6 +71,7 @@ import { RecipesFiltersTabComponent } from './recipes-filters-tab/recipes-filter
     OrderByNumber,
     orderByText,
     RecipesFiltersTabComponent,
+    ImageSliderComponent,
   ],
 })
 export class SharedModule {}

@@ -1,48 +1,70 @@
 <app-header></app-header>
 
 <div class="container">
+  <div class="home-cover-img">
+    <app-image-slider
+      [items]="imagesGalleryItems"
+      [infinite]="true"
+      [coverImage]="true"
+    >
+    </app-image-slider>
+  </div>
 
-    <div class="home-cover-img">
-        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '100%'}" [showArrow]="false"
-            [infinite]="true" [autoSlide]="10" slideImage="1" fetchpriority="high">
-        </ng-image-slider>
+  <div class="top-category">
+    <app-image-slider
+      [items]="imagesGalleryItems"
+      [topCategory]="true"
+    ></app-image-slider>
+  </div>
+
+  <div class="swipe-recipes">
+    <div class="recipes-row first">
+      <app-recipe-cards
+        [Cuisine]="'Italian'"
+        [recipes]="ItalianRecipes"
+      ></app-recipe-cards>
     </div>
 
-    <div class="top-category">
-        <ng-image-slider [images]="imagesGallery" #nav [imageSize]="{width: '25%', space: 10}" fetchpriority="high">
-        </ng-image-slider>
+    <div class="recipes-row">
+      <app-recipe-cards
+        [Cuisine]="'Syrian'"
+        [recipes]="SyrianRecipes"
+      ></app-recipe-cards>
     </div>
 
-    <div class="swipe-recipes">
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'Italian'" [recipes]="ItalianRecipes"></app-recipe-cards>
-        </div>
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'Syrian'" [recipes]="SyrianRecipes"></app-recipe-cards>
-        </div>
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'Chinese'" [recipes]="ChineseRecipes"></app-recipe-cards>
-        </div>
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'British'" [recipes]="BritishRecipes"></app-recipe-cards>
-        </div>
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'Japanese'" [recipes]="JapaneseRecipes"></app-recipe-cards>
-        </div>
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'American'" [recipes]="AmericanRecipes"></app-recipe-cards>
-        </div>
-
-        <div class="recipes-row">
-            <app-recipe-cards [Cuisine]="'Moroccan'" [recipes]="MoroccanRecipes"></app-recipe-cards>
-        </div>
-
+    <div class="recipes-row">
+      <app-recipe-cards
+        [Cuisine]="'Chinese'"
+        [recipes]="ChineseRecipes"
+      ></app-recipe-cards>
     </div>
 
+    <div class="recipes-row">
+      <app-recipe-cards
+        [Cuisine]="'British'"
+        [recipes]="BritishRecipes"
+      ></app-recipe-cards>
+    </div>
+
+    <div class="recipes-row">
+      <app-recipe-cards
+        [Cuisine]="'Japanese'"
+        [recipes]="JapaneseRecipes"
+      ></app-recipe-cards>
+    </div>
+
+    <div class="recipes-row">
+      <app-recipe-cards
+        [Cuisine]="'American'"
+        [recipes]="AmericanRecipes"
+      ></app-recipe-cards>
+    </div>
+
+    <div class="recipes-row">
+      <app-recipe-cards
+        [Cuisine]="'Moroccan'"
+        [recipes]="MoroccanRecipes"
+      ></app-recipe-cards>
+    </div>
+  </div>
 </div>
