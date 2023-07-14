@@ -1,9 +1,31 @@
 <div class="filters-tab">
-    <button mat-stroked-button class="fitler-btn"
-        [ngStyle]="{'background-color': cookingTimeToggle ? '#ffdf36' : 'transparent'}"
-        (click)="cookingTimeActive()">cooking time</button>
-    <button mat-stroked-button [ngStyle]="{'background-color': nameToggle ? '#ffdf36' : 'transparent'}"
-        class="fitler-btn" (click)="nameActive()">name</button>
-    <button mat-stroked-button [ngStyle]="{'background-color': cuisineToggle ? '#ffdf36' : 'transparent'}"
-        class="fitler-btn" (click)="cuisineActive()" *ngIf="!cuisineRecipes">cuisine</button>
+  <button
+    mat-stroked-button
+    class="fitler-btn"
+    [ngStyle]="{
+      'background-color': cookingTimeToggle ? '#fff75aab' : 'transparent'
+    }"
+    (click)="cookingTimeActive()"
+  >
+    cooking time
+  </button>
+  <button
+    mat-stroked-button
+    [ngStyle]="{ 'background-color': nameToggle ? '#fff75aab' : 'transparent' }"
+    class="fitler-btn"
+    (click)="nameActive()"
+  >
+    name
+  </button>
+  <button
+    mat-stroked-button
+    [ngStyle]="{
+      'background-color': cuisineToggle ? '#fff75aab' : 'transparent'
+    }"
+    class="fitler-btn"
+    (click)="cuisineActive()"
+    *ngIf="!cuisineRecipes"
+  >
+    cuisine
+  </button>
 </div>

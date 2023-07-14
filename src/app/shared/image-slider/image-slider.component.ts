@@ -6,7 +6,6 @@ interface Image {
   path: string;
   title: string;
 }
-
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',

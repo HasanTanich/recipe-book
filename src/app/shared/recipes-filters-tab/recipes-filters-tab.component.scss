@@ -1,15 +1,15 @@
 .filters-tab {
-    display: flex;
-    justify-content: flex-start;
-    gap: 3%;
-    align-items: center;
-    margin-bottom: 3%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 3%;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 
 .fitler-btn {
-    text-transform: capitalize;
-    font-size: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-sizing: border-box;
+  text-transform: capitalize;
+  font-size: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
