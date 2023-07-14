@@ -70,17 +70,15 @@
 
   <div class="messages-list" [ngClass]="{ admin: !isAdmin }">
     <h1 class="admin-messages-title">Messages from our users</h1>
-    <mat-selection-list [multiple]="false">
+    <mat-selection-list #messages [multiple]="false">
       <mat-list-option
         *ngFor="let user of users"
         [value]="user.name"
         (click)="showMessage(user)"
       >
         {{ user.name }}
-        <mat-icon class="delete-btn" (click)="deleteMessage(user)"
-          >delete</mat-icon
-        >
       </mat-list-option>
+      <mat-icon class="delete-btn" (click)="deleteMessage()">delete</mat-icon>
     </mat-selection-list>
   </div>
 </div>

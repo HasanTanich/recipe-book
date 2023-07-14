@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactUs } from 'src/app/core/models/ContactUs.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { DataService } from 'src/app/core/services/data.service';
+import { ConfirmPromptComponent } from 'src/app/shared/confirm-prompt/confirm-prompt.component';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
 
 @Component({
@@ -15,6 +16,7 @@ export class ContactComponent implements OnInit {
   isAdmin: boolean; // Logged in or not
   data; // data fetched from database
   users;
+  selectedUser;
 
   contactForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -45,16 +47,25 @@ export class ContactComponent implements OnInit {
   }
 
   showMessage(user: ContactUs) {
+    this.selectedUser = user;
     this.dialog.open(UserMessagesDialogComponent, {
       data: user,
     });
   }
 
-  deleteMessage(user: ContactUs) {
-    this.users = this.users.filter((u) => {
-      return u !== user;
+  deleteMessage() {
+    let dialogRef = this.dialog.open(ConfirmPromptComponent, {
+      width: '250px',
     });
-    this.dataService.deleteData('contact-us', user.id);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.users = this.users.filter((u) => {
+          return u !== this.selectedUser;
+        });
+        this.dataService.deleteData('contact-us', this.selectedUser.id);
+      }
+    });
   }
 
   emailErrorMessage() {
