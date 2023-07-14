@@ -4,13 +4,11 @@
     [ngClass]="{ 'cover-img-box': coverImage }"
     [style]="activeIndexStyling"
   >
-    <!-- (imageClick)="goToRecipe($event)" -->
     <div
       class="image-box"
       [ngClass]="{
         'top-category': topCategory,
-        'home-cover-img': coverImage,
-        'instant-transition': this.infinite && activeIndex === this.maxIndex
+        'home-cover-img': coverImage
       }"
       *ngFor="let image of images"
       [style.height]="height"
