@@ -1,6 +1,13 @@
 // phone layout
-@mixin onSmall {
+@mixin onXSmall {
   @media (max-width: 639px) {
+    @content;
+  }
+}
+
+// tablet layout
+@mixin onSmall {
+  @media (max-width: 768px) {
     @content;
   }
 }
@@ -21,7 +28,7 @@
 
 // big screens
 @mixin onXLarge {
-  @media (max-width: 1440px) {
+  @media (max-width: 1400px) {
     @content;
   }
 }

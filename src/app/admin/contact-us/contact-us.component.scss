@@ -1,10 +1,17 @@
+@import "/src/styles/mixins.scss";
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
-  background-color: rgb(187, 234, 250);
+  background-color: #efefef;
+  padding-top: 4rem;
+  height: 100vh;
+
+  @include onXSmall {
+    padding-top: 9rem;
+  }
 }
 
 .contact-box {
@@ -48,7 +55,7 @@
 }
 
 .submit-btn {
-  margin-top: 7%;
+  margin-top: 2rem;
   user-select: none;
   border-radius: 6px;
 }
@@ -58,12 +65,25 @@
 }
 
 .messages-list {
-  margin-top: 5%;
-  padding: 8%;
+  width: 700px;
+  text-align: start;
+  padding: 0;
+
+  @include onSmall {
+    padding: 1rem;
+  }
 }
 
 .admin-messages-title {
-  margin-bottom: 2%;
+  margin-bottom: 5rem;
+
+  @include onSmall {
+    font-size: 28px;
+  }
+
+  @include onXSmall {
+    font-size: 24px;
+  }
 }
 
 .mat-error {
@@ -72,32 +92,12 @@
   font-size: 12px;
 }
 
-.mat-selection-list .mat-list-option .delete-btn {
-  position: absolute;
-  right: -2rem;
+.error-div {
+  height: 20px;
+}
+
+.delete-btn {
+  margin-top: 1rem;
   font-size: 22px;
-}
-
-@media only screen and (max-width: 1200px) {
-  .messages-list {
-    margin-top: 10%;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .messages-list {
-    margin-top: 12%;
-  }
-}
-
-@media only screen and (max-width: 769px) {
-  .messages-list {
-    margin-top: 15%;
-  }
-}
-
-@media only screen and (max-width: 485px) {
-  .messages-list {
-    margin-top: 20%;
-  }
+  cursor: pointer;
 }

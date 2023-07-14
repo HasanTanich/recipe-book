@@ -4,20 +4,19 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactUs } from 'src/app/core/models/ContactUs.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { DataService } from 'src/app/core/services/data.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
+import { ConfirmPromptComponent } from 'src/app/shared/confirm-prompt/confirm-prompt.component';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss']
+  styleUrls: ['./contact-us.component.scss'],
 })
-
 export class ContactComponent implements OnInit {
-
   isAdmin: boolean; // Logged in or not
   data; // data fetched from database
   users;
+  selectedUser;
 
   contactForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -25,7 +24,11 @@ export class ContactComponent implements OnInit {
     message: new FormControl('', Validators.required),
   });
 
-  constructor(public dataService: DataService, public authService: AuthService, public dialog: MatDialog, public notificationService: NotificationService) { }
+  constructor(
+    public dataService: DataService,
+    public authService: AuthService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.isAdmin = this.authService.Authenticated();
@@ -44,23 +47,33 @@ export class ContactComponent implements OnInit {
   }
 
   showMessage(user: ContactUs) {
+    this.selectedUser = user;
     this.dialog.open(UserMessagesDialogComponent, {
       data: user,
     });
   }
 
-  deleteMessage(user: ContactUs) {
-    this.users = this.users.filter(u => {
-      return u !== user;
+  deleteMessage() {
+    let dialogRef = this.dialog.open(ConfirmPromptComponent, {
+      width: '250px',
     });
-    this.dataService.deleteData('contact-us', user.id)
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.users = this.users.filter((u) => {
+          return u !== this.selectedUser;
+        });
+        this.dataService.deleteData('contact-us', this.selectedUser.id);
+      }
+    });
   }
 
   emailErrorMessage() {
     if (this.contactForm.get('email').hasError('required')) {
       return '* Email field is required';
     }
-    return this.contactForm.get('email').hasError('email') ? 'Not a valid email' : '';
+    return this.contactForm.get('email').hasError('email')
+      ? 'Not a valid email'
+      : '';
   }
-
 }

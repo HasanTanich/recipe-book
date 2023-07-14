@@ -1,8 +1,30 @@
-.recipes-title {
+@import "/src/styles/mixins.scss";
+
+.recipes-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
+
+  & .title {
+    @include onSmall {
+      font-size: 28px;
+    }
+
+    @include onXSmall {
+      font-size: 24px;
+    }
+  }
+
+  & .view-all-link {
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include onXSmall {
+      font-size: 14px;
+    }
+  }
 }
 
 .recipes-description {
@@ -12,8 +34,4 @@
 
 .recipes-cards {
   height: 190px;
-}
-
-.view-all-link:hover {
-  text-decoration: underline;
 }
