@@ -4,17 +4,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContactUs } from 'src/app/core/models/ContactUs.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { DataService } from 'src/app/core/services/data.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
 import { UserMessagesDialogComponent } from './user-messages-dialog/user-messages-dialog.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss']
+  styleUrls: ['./contact-us.component.scss'],
 })
-
 export class ContactComponent implements OnInit {
-
   isAdmin: boolean; // Logged in or not
   data; // data fetched from database
   users;
@@ -25,7 +22,11 @@ export class ContactComponent implements OnInit {
     message: new FormControl('', Validators.required),
   });
 
-  constructor(public dataService: DataService, public authService: AuthService, public dialog: MatDialog, public notificationService: NotificationService) { }
+  constructor(
+    public dataService: DataService,
+    public authService: AuthService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.isAdmin = this.authService.Authenticated();
@@ -50,17 +51,18 @@ export class ContactComponent implements OnInit {
   }
 
   deleteMessage(user: ContactUs) {
-    this.users = this.users.filter(u => {
+    this.users = this.users.filter((u) => {
       return u !== user;
     });
-    this.dataService.deleteData('contact-us', user.id)
+    this.dataService.deleteData('contact-us', user.id);
   }
 
   emailErrorMessage() {
     if (this.contactForm.get('email').hasError('required')) {
       return '* Email field is required';
     }
-    return this.contactForm.get('email').hasError('email') ? 'Not a valid email' : '';
+    return this.contactForm.get('email').hasError('email')
+      ? 'Not a valid email'
+      : '';
   }
-
 }
