@@ -12,7 +12,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
-import { NgImageSliderModule } from 'ng-image-slider';
 import { ConfirmPromptComponent } from './confirm-prompt/confirm-prompt.component';
 import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -39,7 +38,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CommonModule,
     RouterModule,
     MatIconModule,
-    NgImageSliderModule,
     MatDialogModule,
     MatButtonModule,
     MatDividerModule,
@@ -64,7 +62,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatListModule,
     MatDividerModule,
     RecipeCardsComponent,
-    NgImageSliderModule,
     ConfirmPromptComponent,
     MatAutocompleteModule,
     FilterPipe,
