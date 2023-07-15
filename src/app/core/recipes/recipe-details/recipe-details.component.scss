@@ -1,162 +1,131 @@
+@import "/src/styles/mixins.scss";
+
 .container {
-    padding: 9%;
+  padding: 5rem;
+  margin-top: 6rem;
+  padding-bottom: 4rem;
+
+  @include onXLarge {
+    padding: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  @include onLarge {
+    padding: 3rem;
+  }
+
+  @include onMedium {
+    padding: 1rem;
+    margin-top: 7.5rem;
+  }
+
+  @include onSmall {
+    padding: 1rem 0.3rem;
+    margin-top: 9rem;
+  }
 }
 
 .row {
-    display: flex;
-    margin-left: 5%;
-    height: auto;
+  display: flex;
+  padding: 0.5rem;
+
+  @include onSmall {
+    flex-direction: column;
+    margin: 0;
+  }
 }
 
 .first-col {
-    max-width: 60%;
-    width: 60%;
-    padding-right: 3%;
+  max-width: 55%;
+  flex-grow: 1;
+  padding-right: 2rem;
+
+  @include onSmall {
+    max-width: 100%;
+    padding: 0;
+  }
 }
 
 .second-col {
-    width: 40%;
-    padding-left: 3%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include onSmall {
+    padding: 0;
+    margin-top: 2rem;
+  }
 }
 
 .tags {
-    display: flex;
-    gap: 3%;
-    margin-bottom: 5%;
-}
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
 
-.tags button {
+  & .tag-button {
+    padding: 0.5rem 1rem;
     font-size: 16px;
+    color: rgb(42, 42, 243);
     text-transform: capitalize;
     cursor: default;
-    background-color: #e1e1e1;
-}
-
-.cuisine {
-    display: flex;
-    align-items: center;
-    padding: 2%;
-}
-
-.mealType {
-    display: flex;
-    align-items: center;
-    padding: 2%;
-}
-
-.cookingTime {
-    display: flex;
-    align-items: center;
-    padding: 2%;
+    background-color: #fafafa;
+    border-radius: 8px;
+  }
 }
 
 .title {
-    margin-bottom: 4%;
+  margin-bottom: 4%;
 }
 
 .img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-}
-
-.ingredients {
-    margin-top: 3%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .ingredients-title {
-    padding: 10px;
+  padding: 10px;
 }
 
 .ingredients-list {
-    padding: 10px;
+  padding: 10px 0;
 }
 
-// reviews section styling
 .reviews {
-    margin-top: 20px;
-    padding: 5%;
+  margin-top: 20px;
+  padding: 0.5rem;
 }
-
-// .reviews-title{
-
-// }
 
 .review-box {
-    margin-top: 20px;
-    background-color: #ebece9;
-    border-radius: 16px;
+  margin-top: 20px;
+  background-color: #ebece9;
+  border-radius: 16px;
+  padding: 1rem;
 }
 
 .username {
-    padding: 1% 1% 0% 2%;
+  padding-bottom: 1rem;
 }
 
 .comment {
-    padding: 2%;
+  line-height: 1.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .add-review-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-    margin-top: 20px;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .reviews-divider {
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-
-
-@media only screen and (max-width: 1200px) {
-    .container {
-        padding: 15% 8% 8% 8%;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .container {
-        padding: 20% 7% 7% 7%;
-    }
-}
-
-@media only screen and (max-width: 769px) {
-    .container {
-        padding: 20% 6% 6% 6%;
-    }
-
-    .row {
-        flex-direction: column;
-        margin: 0;
-    }
-
-    .first-col {
-        max-width: 90%;
-        width: 90%;
-        padding: 0;
-    }
-
-    .second-col {
-        width: 100%;
-        padding: 5%;
-    }
-
-    .ingredients p {
-        font-size: 13px;
-    }
-}
-
-@media only screen and (max-width: 485px) {
-    .container {
-        padding: 30% 5% 5% 5%;
-    }
-
-    .ingredients p {
-        font-size: 10px;
-    }
+  margin: 2rem 0;
 }

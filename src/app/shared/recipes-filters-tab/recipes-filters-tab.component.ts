@@ -3,10 +3,9 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 @Component({
   selector: 'app-recipes-filters-tab',
   templateUrl: './recipes-filters-tab.component.html',
-  styleUrls: ['./recipes-filters-tab.component.scss']
+  styleUrls: ['./recipes-filters-tab.component.scss'],
 })
 export class RecipesFiltersTabComponent implements OnInit {
-
   cookingTimeToggle: boolean = false;
   nameToggle: boolean = false;
   cuisineToggle: boolean = false;
@@ -17,10 +16,9 @@ export class RecipesFiltersTabComponent implements OnInit {
   @Output() name = new EventEmitter<boolean>();
   @Output() cuisine = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   cookingTimeActive() {
     this.cookingTimeToggle = !this.cookingTimeToggle;

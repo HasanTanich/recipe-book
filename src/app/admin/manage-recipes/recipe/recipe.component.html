@@ -1,27 +1,43 @@
 <div class="recipe-card">
-    <a [routerLink]="['/recipe-details', recipe.name]" [state]="recipe" class="recipe-details-link">Go to
-        recipe</a>
-    <img fetchpriority="high" class="recipe-img" [src]="recipe.image" [alt]="recipe.name">
-    <div class="card-info">
-        <div class="left-side">
-            <h3 class="recipe-name">{{recipe.name}}</h3>
-            <div class="ingredients-box">
-                <h3 class="ingredients">Ingredients:</h3>
-                <ul>
-                    <li *ngFor="let ingredient of recipe.ingredients">
-                        {{ingredient}}
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="right-side">
-            <p> <span style="font-weight: bold;">Meal Type:</span> {{recipe.mealType}}</p>
-            <p> <span style="font-weight: bold;">Cuisine:</span> {{recipe.cuisine}}</p>
-            <p> <span style="font-weight: bold;">Cooking Time:</span> {{recipe.cookingTime}}</p>
-        </div>
-        <div class="edit-delete">
-            <mat-icon (click)="onDelete(recipe)">delete</mat-icon>
-            <mat-icon (click)="onEdit(recipe)">edit</mat-icon>
-        </div>
+  <a
+    [routerLink]="['/recipe-details', recipe.name]"
+    [state]="recipe"
+    class="recipe-details-link"
+    >Go to recipe</a
+  >
+  <img
+    fetchpriority="high"
+    class="recipe-img"
+    [src]="recipe.image"
+    [alt]="recipe.name"
+  />
+  <div class="card-info">
+    <div class="left-side">
+      <h3 class="recipe-name">{{ recipe.name }}</h3>
+      <div class="ingredients-box">
+        <h3 class="ingredients">Ingredients:</h3>
+        <ul>
+          <li *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="right-side">
+      <p>
+        <span style="font-weight: bold">Meal Type:</span> {{ recipe.mealType }}
+      </p>
+      <p>
+        <span style="font-weight: bold">Cuisine:</span> {{ recipe.cuisine }}
+      </p>
+      <p>
+        <span style="font-weight: bold">Cooking Time:</span>
+        {{ recipe.cookingTime }}
+      </p>
+    </div>
+    <div class="edit-delete">
+      <mat-icon (click)="onDelete(recipe)">delete</mat-icon>
+      <mat-icon (click)="onEdit(recipe)">edit</mat-icon>
+    </div>
+  </div>
 </div>
