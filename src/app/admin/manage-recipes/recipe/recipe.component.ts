@@ -25,9 +25,7 @@ export class RecipeComponent implements OnInit {
   ngOnInit(): void {}
 
   onDelete(r: Recipe) {
-    let dialogRef = this.dialog.open(ConfirmPromptComponent, {
-      width: '250px',
-    });
+    let dialogRef = this.dialog.open(ConfirmPromptComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

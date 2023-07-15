@@ -12,7 +12,7 @@
       }"
       *ngFor="let image of images"
       [style.height]="height"
-      [routerLink]="['/recipe-details', image.title]"
+      [routerLink]="!coverImage ? ['/recipe-details', image.title] : []"
     >
       <img [src]="image.path" [alt]="image.title" />
       <div class="image-title-box">
